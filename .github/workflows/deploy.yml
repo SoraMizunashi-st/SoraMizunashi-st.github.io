@@ -1,0 +1,47 @@
+name: Deploy Next.js to GitHub Pages (SSG)
+
+on:
+  push:
+    branches:
+      - main # mainブランチにpushされたら自動実行
+
+jobs:
+  build-and-deploy:
+    # Pagesをホスティングするために必要なパーミッションを設定（Next.js 13以降の標準）
+    permissions:
+      contents: write
+      pages: write
+      id-token: write
+    
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20 # 最新のLTSバージョンを使用
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build Next.js site (Static Export)
+        run: npm run build
+        
+      # GitHub Pages アクションを使って成果物をデプロイするための設定
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./out # next.config.jsで指定した静的出力フォルダ 'out' を指定
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
