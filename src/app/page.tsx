@@ -1,94 +1,58 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+import styles from './page.module.css'; // 専用CSSモジュールをインポート
 
+// メインページコンポーネント
 export default function Home() {
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol>
-          <li>
-            Get started by editing <code>src/app/page.tsx</code>.
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    // ページ全体を囲むコンテナ
+    <div className={styles.container}>
+      
+      {/* 1. ヘッダーエリア (変更なし) */}
+      <header className={styles.header}>
+        <div className={styles.logo}>StellaLab.</div>
+        <nav className={styles.nav}>
+          <a href="#about" className={styles.navItem}>About</a>
+          <a href="#projects" className={styles.navItem}>Projects</a>
+          <a href="#contact" className={styles.navItem}>Contact</a>
+        </nav>
+      </header>
 
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.secondary}
-          >
-            Read our docs
-          </a>
-        </div>
+      {/* 2. メインコンテンツエリア（ヒーローセクション） (変更なし) */}
+      <main className={styles.main}>
+        <section className={styles.hero}>
+          <h1 className={styles.heroTitle}>
+            次世代のソリューションを創造する
+          </h1>
+          <p className={styles.heroSubtitle}>
+            技術的な複雑さを抽象化し、シンプルで堅牢なシステムを構築します。
+          </p>
+          <a href="#contact" className={styles.ctaButton}>お問い合わせ</a>
+        </section>
+        
+        {/* 3. その他のセクション（骨格のみ） (変更なし) */}
+        <section id="about" className={styles.section}>
+          <h2>About Us</h2>
+          <p>技術への深い知見と、合理的かつ保守性の高いコード設計を追求します。</p>
+        </section>
+
+        <section id="projects" className={styles.section}>
+          <h2>Recent Projects</h2>
+          <div className={styles.projectGrid}>
+            <div className={styles.projectItem}>Project A</div>
+            <div className={styles.projectItem}>Project B</div>
+          </div>
+        </section>
       </main>
+
+      {/* 4. フッターエリア (プライバシーポリシーリンクを追加) */}
       <footer className={styles.footer}>
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+        {/* AdSense対応で必須のプライバシーポリシーリンク */}
+        <div className={styles.footerLinks}>
+            {/* /privacy パスへのリンクを設置（Next.jsのルーティングに対応） */}
+            <a href="/privacy" className={styles.footerLink}>Privacy Policy</a>
+            <span className={styles.separator}> | </span>
+            <a href="#contact" className={styles.footerLink}>Contact</a>
+        </div>
+        <p className={styles.copyright}>© 2025~ SoraMizunashi@StellaLab. All rights reserved.</p>
       </footer>
     </div>
   );
