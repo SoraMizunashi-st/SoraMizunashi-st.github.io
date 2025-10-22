@@ -1,0 +1,20 @@
+/* スライド全体のコンテナを調整 */
+.carouselContainer {
+    max-width: 1200px; /* 必要に応じて最大幅を設定 */
+    margin: 0 auto;
+}
+
+/* 個々のスライドアイテム（カード）のスタイル */
+.projectCard {
+    background-color: var(--color-background-primary);
+    padding: var(--spacing-base);
+    border-radius: var(--border-radius-base);
+    box-shadow: var(--shadow-item);
+    /* Splideの標準テーマを使用する場合、
+       個別のスタイリングは少なくても見栄えがします */
+    min-height: 200px; /* 高さを確保 */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

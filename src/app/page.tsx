@@ -3,8 +3,11 @@ import styles from './page.module.css';
 import Header from '../component/Header';
 
 import HeroSection from '../component/HeroSection';
+import TopSection from '../component/TopSection';
 import AboutSection from '../component/AboutSection';
-import ProjectSection from '../component/ProjectSection';
+import GameProjectSection from '../component/GameProjectSection';
+import ProjectSection from '../component/TopicProjectSection';
+
 
 import Fotter from '../component/Fotter'; 
 
@@ -16,7 +19,9 @@ export default function Home() {
 
       <main className={styles.main}>
         <HeroSection/>
+        <TopSection/>
         <AboutSection/>
+        <GameProjectSection/>
         <ProjectSection/>
       </main>
 
