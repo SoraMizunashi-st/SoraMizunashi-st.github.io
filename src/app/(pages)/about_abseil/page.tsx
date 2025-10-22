@@ -2,7 +2,7 @@ import styles from './common.module.css'; // 専用CSSモジュールをイン�
 
 import Header from '../../../component/Header';
 
-import Privacy from './my_tmp';
+import Privacy from './about_abseil';
 
 import Fotter from '../../../component/Fotter'; 
 

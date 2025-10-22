@@ -1,12 +1,62 @@
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* ==================== 1. 基本色 ==================== */
+  --color-background-primary: #ffffff; /* (現在の --background) メインの背景色 */
+  --color-text-dark: #171717;           /* (現在の --foreground) メインのテキスト色 */
+  --color-text-light: #555555;          /* ナビゲーションの通常テキスト色 */
+  
+  /* ==================== 2. ブランド/アクセントカラー ==================== */
+  --color-brand-primary: #1882ed;        /* ロゴ、ホバー、セクション見出しのボーダー色 */
+  --color-brand-accent: #f0f7ff;         /* セクションの背景色（薄い青） */
+  --color-brand-border: #d4e7ff;         /* セクションの区切り線色 */
+
+  /* ==================== 3. シャドウ/エフェクト ==================== */
+  --shadow-header: 0 2px 8px rgba(24, 130, 237, 0.1); /* ヘッダーのシャドウ */
+  --shadow-item: 0 4px 12px rgba(0, 0, 0, 0.08);      /* プロジェクトアイテムのシャドウ */
+
+  /* ==================== 4. スペーシング/サイズ ==================== */
+  --spacing-base: 1.5rem;   /* 標準のパディング/セクションアイテムのパディング */
+  --spacing-section: 5rem;  /* セクションの上下パディング */
+  --spacing-nav: 2rem;      /* ナビゲーションリンク間のマージン */
+
+  --border-radius-base: 8px; /* 標準の角丸 */
+  --border-width-thick: 5px; /* projectItemの左ボーダー幅 */
+
+  --media-max-width: 768px;
+
+  --one_columns : 1fr;
+  --two_columns : 1fr 1fr;
+  --tri_columns : 1fr 1fr 1fr;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    /* ==================== 1. 基本色 ==================== */
+    --color-background-primary: #ffffff; /* (現在の --background) メインの背景色 */
+    --color-text-dark: #171717;           /* (現在の --foreground) メインのテキスト色 */
+    --color-text-light: #555555;          /* ナビゲーションの通常テキスト色 */
+  
+    /* ==================== 2. ブランド/アクセントカラー ==================== */
+    --color-brand-primary: #1882ed;        /* ロゴ、ホバー、セクション見出しのボーダー色 */
+    --color-brand-accent: #f0f7ff;         /* セクションの背景色（薄い青） */
+    --color-brand-border: #d4e7ff;         /* セクションの区切り線色 */
+
+    /* ==================== 3. シャドウ/エフェクト ==================== */
+    --shadow-header: 0 2px 8px rgba(24, 130, 237, 0.1); /* ヘッダーのシャドウ */
+    --shadow-item: 0 4px 12px rgba(0, 0, 0, 0.08);      /* プロジェクトアイテムのシャドウ */
+
+    /* ==================== 4. スペーシング/サイズ ==================== */
+    --spacing-base: 1.5rem;   /* 標準のパディング/セクションアイテムのパディング */
+    --spacing-section: 5rem;  /* セクションの上下パディング */
+    --spacing-nav: 2rem;      /* ナビゲーションリンク間のマージン */
+
+    --border-radius-base: 8px; /* 標準の角丸 */
+    --border-width-thick: 5px; /* projectItemの左ボーダー幅 */
+
+    --media-max-width: 768px;
+
+    --one_columns : 1fr;
+    --two_columns : 1fr 1fr;
+    --tri_columns : 1fr 1fr 1fr;
   }
 }
 

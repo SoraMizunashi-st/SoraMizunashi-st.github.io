@@ -9,6 +9,10 @@ export default function ProjectSection() {
           <div className={styles.projectGrid}>
             <div className={styles.projectItem}>Project A</div>
             <div className={styles.projectItem}>Project B</div>
+            <div className={styles.projectItem}>
+              <a href="/about_abseil">About Abseil Static Linking order</a>
+            </div>
+            <div className={styles.projectItem}>Project B</div>
           </div>
         </section>
     );
