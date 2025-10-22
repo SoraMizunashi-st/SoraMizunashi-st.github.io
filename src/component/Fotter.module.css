@@ -1,22 +1,17 @@
-/*
- * 4. フッターエリアに関連する追加スタイル
- */
 
 .footer {
-    /* (既存のフッタースタイルを維持。ここではリンク用のレイアウト調整のみ) */
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 0.5rem; /* リンクと著作権表示の間のスペース */
-    /* ... 他のフッタープロパティ ... */
+    gap: 0.5rem;
 }
 
 .footerLinks {
-    margin-bottom: 0.5rem; /* 著作権表示との間隔 */
+    margin-bottom: 0.5rem;
 }
 
 .footerLink {
-    color: #1882ed; /* メインカラーを使用 */
+    color: #1882ed;
     text-decoration: none;
     font-size: 0.9rem;
     transition: text-decoration 0.3s;

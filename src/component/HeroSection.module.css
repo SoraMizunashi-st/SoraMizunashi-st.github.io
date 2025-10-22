@@ -1,0 +1,41 @@
+
+
+.hero {
+    /* ヒーローセクション：クリーンな白ベース、広めのパディング */
+    padding: 10rem 5%; 
+    text-align: center;
+    background-color: #ffffff;
+    min-height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.heroTitle {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    color: #1a1a1a;
+}
+
+.heroSubtitle {
+    font-size: 1.35rem;
+    color: #555555;
+    margin-bottom: 2.5rem;
+}
+
+.ctaButton {
+    background-color: #1882ed; /* 鮮やかブルー */
+    color: #ffffff;
+    padding: 0.9rem 2.8rem; /* 少し大きく */
+    border-radius: 6px; /* 角を少し丸く */
+    text-decoration: none;
+    font-weight: 600;
+    box-shadow: 0 6px 15px rgba(24, 130, 237, 0.4); /* 青い影を強めに強調 */
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.ctaButton:hover {
+    background-color: #0066cc; /* 少し暗い青 */
+    transform: translateY(-2px);
+}
