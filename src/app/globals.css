@@ -30,9 +30,15 @@
 
   --media-max-width: 768px;
 
+  --spacing-game-base: 0.5rem;
+  --spacing-game-nav: 1.0rem;
+  
+  --spacing-news-base: 0.5rem;
+  
   --one_columns : 1fr;
   --two_columns : 1fr 1fr;
   --tri_columns : 1fr 1fr 1fr;
+  --for_columns : 1fr 1fr 1fr 1fr;
 }
 
 @media (prefers-color-scheme: dark) {

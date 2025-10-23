@@ -1,10 +1,10 @@
 
 
-import styles from './ProjectSection.module.css';
+import styles from './TopicProjectSection.module.css';
 
 export default function ProjectSection() {
     return (
-        <section id="projects" className={styles.section}>
+        <section id="topic" className={styles.section}>
           <h2>Topics!</h2>
           <div className={styles.projectGrid}>
             <div className={styles.projectItem}>Project A</div>
@@ -13,6 +13,10 @@ export default function ProjectSection() {
               <a href="/about_abseil">About Abseil Static Linking order</a>
             </div>
             <div className={styles.projectItem}>Project D</div>
+            <div className={styles.projectItem}>Project E</div>
+            <div className={styles.projectItem}>Project F</div>
+            <div className={styles.projectItem}>Project G</div>
+            <div className={styles.projectItem}>Project H</div>
           </div>
         </section>
     );

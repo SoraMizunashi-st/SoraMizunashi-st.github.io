@@ -6,6 +6,7 @@ import HeroSection from '../component/HeroSection';
 import TopSection from '../component/TopSection';
 import AboutSection from '../component/AboutSection';
 import GameProjectSection from '../component/GameProjectSection';
+import NewsSection from '../component/NewsSection';
 import ProjectSection from '../component/TopicProjectSection';
 
 
@@ -22,6 +23,7 @@ export default function Home() {
         <TopSection/>
         <AboutSection/>
         <GameProjectSection/>
+        <NewsSection/>
         <ProjectSection/>
       </main>
 

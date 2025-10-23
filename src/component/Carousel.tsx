@@ -42,7 +42,7 @@ export default function Carousel() {
           <SplideSlide key={project.id}>
             <div className={styles.projectCard}>
               <h3>{project.title}</h3>
-              <a href={project.link}>詳細を見る</a>
+              <a href={project.link}>プレイする!!</a>
             </div>
           </SplideSlide>
         ))}
