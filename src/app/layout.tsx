@@ -50,6 +50,7 @@ export default function RootLayout({
             gtag('config', 'G-PQJFFHRTR5');
           `}
         </Script>
+      <meta name="google-site-verification" content="O7facIH7zGAyCWirQEkwXsSL_1KJ3dcrlrb-Me-mies" />
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         {children}
       </body>
