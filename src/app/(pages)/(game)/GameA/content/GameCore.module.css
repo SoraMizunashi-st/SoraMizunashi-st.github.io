@@ -1,0 +1,116 @@
+
+.gameFrame {
+    /* 幅を固定または最大幅を設定 */
+    width: 1080px; /* ★★★ 幅を固定（またはmax-widthを600pxにする） ★★★ */
+    max-width: 100%; /* 親の幅を超えないようにする */
+    
+    /* 4:3のアスペクト比を強制的に設定 */
+    /* 600px (幅) * 3/4 = 450px (高さ) */
+    height: 810px; /* ★★★ 高さを固定値で設定 ★★★ */
+    padding-top: 0; /* padding-topによるハックを無効化 */
+    
+    position: relative;
+    border: 3px solid #0070f3;
+    box-sizing: border-box; 
+    
+    /* コンテナ自体を中央に配置 */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* 2. GameCore のコンテンツを外枠に合わせる */
+.gameFrame > * {
+    position: absolute; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    /* 内部の padding を確保し、コンテンツを上から順に表示する設定 */
+    padding: 30px 20px; 
+    box-sizing: border-box;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; 
+    align-items: center;
+}
+
+/* GameCore.module.css */
+
+.gameContainer {
+    /* 装飾スタイル (GameCore.tsxから移動) */
+    text-align: center;
+    background-color: #1a1a2e; /* 背景色をゲームっぽく暗めに */
+    color: #00e676; /* 文字色を明るく */
+    box-shadow: 0 0 10px rgba(0, 230, 118, 0.8); /* ネオングリーンっぽい影 */
+    font-family: monospace; /* プログラミングっぽいフォント */
+
+    /* 内部のレイアウト (親CSSで height: 100%; width: 100% が設定されている前提) */
+    /* GameA.module.css の .gameFrame > * の Flexbox 設定を補完 */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; 
+    align-items: center;
+    padding: 30px 20px; /* 親CSSのpaddingと重複しないように注意が必要 */
+    box-sizing: border-box;
+}
+
+.title {
+    margin: 0;
+    padding: 0;
+    margin-bottom: 20px;
+    font-size: 1.2em;
+}
+
+.infoBlock {
+    /* メインループ情報ブロックのスタイル */
+    font-size: 1.2em
+    /* 空のスタイル情報回避で仮り入れ。後で消す。*/
+}
+
+.statusText {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+.frameCount {
+    font-size: 2em;
+    font-weight: bold;
+}
+
+.updateInfo {
+    font-size: 0.8em;
+    color: #ff4081;
+}
+
+/* シーンごとのオーバーレイ */
+.sceneOverlay {
+    position: absolute; /* .gameContainer 内に絶対配置 */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* 縦方向中央 */
+    align-items: center; /* 横方向中央 */
+    background-color: rgba(0, 0, 0, 0.85); /* 視認性向上のためのオーバーレイ */
+    color: white;
+    font-size: 1.5em;
+    z-index: 10;
+}
+
+/* MainGameScene の情報ブロックを下に配置し直す */
+.infoBlock {
+    /* MainGameSceneでのみ表示されるため、位置を調整 */
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 11; /* シーンオーバーレイより前に出す */
+    padding: 10px 20px;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 5px;
+    /* ... その他の装飾は維持 ... */
+}

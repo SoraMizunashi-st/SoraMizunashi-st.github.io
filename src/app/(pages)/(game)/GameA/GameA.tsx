@@ -1,5 +1,6 @@
 
-import styles from './GameA.module.css'; // 専用CSSモジュールをインポート
+import styles from './GameA.module.css';
+import game_styles from './content/GameCore.module.css';
 import GameContent from './content/GameCore';
 
 import BackIndexComponent from '../../../../component/pageComponent/BackIndexComponent'
@@ -15,7 +16,7 @@ export default function GameA() {
           </h1>
         </section>
 
-        <section className={styles.gameSection}>
+        <section className={game_styles.gameFrame}>
           <GameContent />
         </section>
 
