@@ -1,21 +1,42 @@
-// content/GameCore.tsx
-
+// ------------------------------------------------------------------------------------------------------------------------
+// Dont's touch | rules , it's magic.
+// ------------------------------------------------------------------------------------------------------------------------
 "use client";
 
-import React, { useState, useEffect, useRef, useCallback } from 'react';
-import game_styles from './GameCore.module.css'; // スタイルはCSSモジュールで管理
+// ------------------------------------------------------------------------------------------------------------------------
+// standard Libs Import
+// ------------------------------------------------------------------------------------------------------------------------
 
-// ----------------------------------------
-// ★★★ ダミーのシーンコンポーネント (Props型定義済み) ★★★
-// ----------------------------------------
+
+// ------------------------------------------------------------------------------------------------------------------------
+// Custom Import
+// ------------------------------------------------------------------------------------------------------------------------
+import game_styles from './GameCore.module.css';
+
+// ------------------------------------------------------------------------------------------------------------------------
+// React Import
+// ------------------------------------------------------------------------------------------------------------------------
+import React, { useState, useEffect, useRef, useCallback } from 'react';
+
+// ------------------------------------------------------------------------------------------------------------------------
+// Pixi.js Import
+// ------------------------------------------------------------------------------------------------------------------------
+import * as PIXI from 'pixi.js';
+
+// ------------------------------------------------------------------------------------------------------------------------
+// Dummy Component
+// ------------------------------------------------------------------------------------------------------------------------
 
 interface SceneProps {
-    // 画面遷移で使うコールバックを定義（全てオプショナル）
+    // Dummy Transition Accessor ( optional )
     onNext?: () => void;
     onResume?: () => void;
     onRestart?: () => void;
 }
 
+// ------------------------------------------------------------------------------------------------------------------------
+// Any Sence
+// ------------------------------------------------------------------------------------------------------------------------
 const TitleScene = ({ onNext }: SceneProps) => (
     <div className={game_styles.sceneOverlay}>
         <h1>GAME TITLE</h1>
@@ -44,11 +65,11 @@ const GameOverScene = ({ onRestart }: SceneProps) => (
     </div>
 );
 
-// ----------------------------------------
-// ★★★ ゲームロジックの「クラス化」と「状態管理」 ★★★
-// ----------------------------------------
+// ------------------------------------------------------------------------------------------------------------------------
+// Main Logic Variables And Struct And Params
+// ------------------------------------------------------------------------------------------------------------------------
 
-const FRAME_INTERVAL_MS = 1000 / 60; // 60 FPS ロック
+const FRAME_INTERVAL_MS = 1000 / 60; // Lock Frame Rate | tmps 60FPS
 
 export enum GameScene {
     Title = 'TITLE',
@@ -61,15 +82,16 @@ interface GameState {
     frame: number;
     isRunning: boolean;
     currentScene: GameScene;
-    // 実際のゲームの状態をここに定義
+    // Add This for Me :)
 }
 
-// ----------------------------------------
-// ★★★ ヘルパー関数群（スケルトン） ★★★
-// ----------------------------------------
-
+// ------------------------------------------------------------------------------------------------------------------------
+// Any Helpers
+// ------------------------------------------------------------------------------------------------------------------------
+// Init() | Description omitted
+// ------------------------------------------------------------------------------------------------------------------------
 const initializeGame = (initialState: GameState): GameState => {
-    // 必要な初期化処理
+    // Write the initialization logic temporarily and then modularize it properly in the future.
     return {
         ...initialState,
         isRunning: true,
@@ -77,8 +99,11 @@ const initializeGame = (initialState: GameState): GameState => {
     };
 };
 
+// ------------------------------------------------------------------------------------------------------------------------
+// Switching Scene Transitions | Temporary implementation, just check the completeness of all scenes
+// ------------------------------------------------------------------------------------------------------------------------
 const transitionScene = (currentState: GameState): GameScene => {
-    // Enterキーを押した際のシーン遷移ロジック
+
     switch (currentState.currentScene) {
         case GameScene.Title:
             return GameScene.MainGame;
@@ -87,12 +112,18 @@ const transitionScene = (currentState: GameState): GameScene => {
         case GameScene.Pause:
             return GameScene.GameOver;
         case GameScene.GameOver:
-            return GameScene.Title; // 終端まで行ったらTitleに戻る
+            return GameScene.Title; // Loops Back to the Title
         default:
             return GameScene.Title;
     }
 };
 
+// ------------------------------------------------------------------------------------------------------------------------
+// Key Event Handler
+// ------------------------------------------------------------------------------------------------------------------------
+// Leave all the basic handling (common parts, pausing with space, etc.) to the main body.
+// Implement only the common handling here.
+// ------------------------------------------------------------------------------------------------------------------------
 const handleInput = (key: string, currentState: GameState): GameState => {
     if (key === 'Enter') {
         return {
@@ -100,17 +131,22 @@ const handleInput = (key: string, currentState: GameState): GameState => {
             currentScene: transitionScene(currentState)
         };
     }
-    // その他の入力はロジック本体に任せる
     return currentState;
 };
 
+
+// ------------------------------------------------------------------------------------------------------------------------
+// MainGameLogics | so-called Core->core();
+// -----------------------------------------------------------------------------------------------------------------------
 const updateCoreLogic = (currentState: GameState): GameState => {
-    // メインゲーム以外のシーンでは、コアロジックを更新しない
+    // For now, let's avoid writing logic outside of the main part of the game.
+    // We can create settings later.
+    // You'll add the usage later anyway. You know it best, right?
     if (currentState.currentScene !== GameScene.MainGame) {
         return currentState;
     }
     
-    // MAINGAME シーン時のみフレームを更新
+    // Update Any Frame | tmps
     const newState = {
         ...currentState,
         frame: currentState.frame + 1
@@ -118,78 +154,84 @@ const updateCoreLogic = (currentState: GameState): GameState => {
     return newState;
 };
 
+// -----------------------------------------------------------------------------------------------------------------------
+// Rendering Helper
+// -----------------------------------------------------------------------------------------------------------------------
+// If you want to make it easier to port your game to other games, 
+// it might be a good idea to design each scene as a separate component after switching, 
+// so that it can be implemented separately while storing the scene linked to the GameScene index.
+// -----------------------------------------------------------------------------------------------------------------------
 const updateRenderHelpers = (currentState: GameState) => {
-    // 実際の描画・アニメーション更新処理（ダミー）
+    // now in dummy
+    new PIXI.Graphics().beginFill(0x880000).lineStyle(5, 0xffffff, 1).drawPolygon([0, 0, 50, 100, 150, 50, 100, 0]).endFill();
 };
 
 
-// ----------------------------------------
-// ★★★ メインコンポーネント ★★★
-// ----------------------------------------
+// -----------------------------------------------------------------------------------------------------------------------
+// Game Core Component Entry | 
+// -----------------------------------------------------------------------------------------------------------------------
 
 export default function GameCore() {
-    // シーンに依存しない状態（frame, isRunning）を useRef で管理
+
     const gameStateRef = useRef<Omit<GameState, 'currentScene'>>({ frame: 0, isRunning: false });
-    
-    // シーンの状態を useState で管理 (画面更新のため)
     const [currentScene, setCurrentScene] = useState(GameScene.Title); 
     const [displayFrameCount, setDisplayFrameCount] = useState(gameStateRef.current.frame); 
 
-    // 現在の完全な GameState を返すヘルパー関数 (useCallbackでメモ化)
     const getFullGameState = useCallback((): GameState => ({
         ...gameStateRef.current,
         currentScene: currentScene
     }), [currentScene]);
 
 
-    // 1. キーイベントリスナーのハンドラ
+    //Key Event Handler
     const handleKeyDown = useCallback((event: KeyboardEvent) => {
         const newGameState = handleInput(event.key, getFullGameState());
         
-        // シーンが変化した場合、useStateを更新する
+        // if Scene Changed , set Next Scene
         if (newGameState.currentScene !== getFullGameState().currentScene) {
             setCurrentScene(newGameState.currentScene);
         }
         
-        // フレームや isRunning などの状態を useRef に書き戻す
+        // Any var's hand over ref
         gameStateRef.current.frame = newGameState.frame;
         gameStateRef.current.isRunning = newGameState.isRunning;
 
     }, [getFullGameState]);
 
-    // 2. 初期化とイベントリスナーの設定/クリーンアップ
+    // Initialize and Clenanup
     useEffect(() => {
-        // 初期化処理
+
+        // Initialize
         gameStateRef.current = initializeGame(getFullGameState());
         
-        // キーイベントリスナーを追加
+        // Add KeyEventListener
         window.addEventListener('keydown', handleKeyDown);
         
         return () => {
-            // クリーンアップでリスナーを削除
+            // Cleanup Listener
             window.removeEventListener('keydown', handleKeyDown);
             console.log("[CLEANUP] Game session ended.");
         };
     }, [handleKeyDown]);
 
 
-    // 3. メインループの実行
+    // Just the main loop according to your knowledge
     useEffect(() => {
         if (!gameStateRef.current.isRunning) return;
 
         const intervalId = setInterval(() => {
             
-            // コアロジックの更新
+            //Update Core Logic
             const newFullState = updateCoreLogic(getFullGameState()); 
             
-            // ★★★ 修正箇所: currentScene以外のプロパティを ref に手動で書き戻す ★★★
+            // Rewrite with ref
             gameStateRef.current.frame = newFullState.frame;
             gameStateRef.current.isRunning = newFullState.isRunning;
 
-            // レンダー関連の更新ヘルパー
+            // Update Helper
             updateRenderHelpers(newFullState);
             
-            // 表示用のStateを更新
+            // Flap state
             setDisplayFrameCount(newFullState.frame);
 
         }, FRAME_INTERVAL_MS);
@@ -198,14 +240,16 @@ export default function GameCore() {
     }, [getFullGameState]); 
 
 
-    // 4. シーンコンポーネントのレンダリング
+    // Rendering
     const renderScene = () => {
         switch (currentScene) {
+            // ----------------------------------------------------------------------------------------------------------------
+            // When you add a scene, the first thing you should check is whether you've forgotten to add these simple parts.
+            // ----------------------------------------------------------------------------------------------------------------
             case GameScene.Title:
                 return <TitleScene />;
                 
             case GameScene.MainGame:
-                // MainGameScene と情報表示を重ねて表示
                 return (
                     <>
                         <MainGameScene />
@@ -222,6 +266,7 @@ export default function GameCore() {
                         </div>
                     </>
                 );
+            // in future , dont forget React flag's <></> , ret is one.
             case GameScene.Pause:
                 return <PauseScene />;
                 
