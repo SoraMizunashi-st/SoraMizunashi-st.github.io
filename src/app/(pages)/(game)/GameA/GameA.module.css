@@ -40,7 +40,7 @@
 
 
 .section {
-    padding: 5rem 5%;
+    padding: 3rem 5%;
     background-color: #f0f7ff;
     border-top: 1px solid #d4e7ff;
 }
@@ -52,5 +52,22 @@
     border-bottom: 3px solid #1882ed;
     padding-bottom: 0.5rem;
     display: inline-block;
+}
+
+.back {
+    /* 1. 中央配置のためのFlexboxを有効化 */
+    display: flex; 
+    
+    /* 2. 主軸（横方向）で子要素を中央に配置 */
+    justify-content: center; 
+    
+    /* 3. 要素の幅自体はコンテンツの幅に合わせる（必須） */
+    width: 100%; /* 親要素の幅いっぱいに広げ、中央配置の基準とする */
+    
+    /* (任意) 上下のスペース */
+    padding: 20px 0; 
+    
+    /* (任意) 要素が視覚的にわかりやすいように枠線を残す */
+    /* border: 1px solid blue; */
 }
 

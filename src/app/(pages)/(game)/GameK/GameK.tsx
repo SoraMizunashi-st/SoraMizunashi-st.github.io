@@ -1,17 +1,28 @@
 
 import styles from './GameK.module.css'; // 専用CSSモジュールをインポート
+import GameContent from './content/GameCore';
+
+import BackIndexComponent from '../../../../component/pageComponent/BackIndexComponent'
 
 
 // メインページコンポーネント
 export default function GameK() {
     return (
 
-        <main className={styles.main}>
-        <section className={styles.hero}>
-          <h1 className={styles.heroTitle}>
-            GameKのテストページです。
+        <>
+        <section className={styles.section}>
+          <h1 className={styles.h2}>
+            ゲームのテストページです。
           </h1>
         </section>
-        </main>
+        
+        <section className={styles.gameSection}>
+          <GameContent />
+        </section>
+
+        <section className={styles.back}>
+          <BackIndexComponent/>
+        </section>
+        </>
     );
 }
