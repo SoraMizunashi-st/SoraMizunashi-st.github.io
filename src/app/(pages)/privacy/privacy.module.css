@@ -3,7 +3,7 @@
     padding: 10rem 5%; 
     text-align: center;
     background-color: #ffffff;
-    min-height: 60vh;
+    min-height: 30vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -11,7 +11,7 @@
 }
 
 .heroTitle {
-    font-size: 3.5rem;
+    font-size: 3.0rem;
     margin-bottom: 1rem;
     color: #1a1a1a;
 }
@@ -48,7 +48,7 @@
 .section h2 {
     font-size: 2.2rem;
     margin-bottom: 2rem;
-    color: "1882ed";
+    color: "#1882ed";
     border-bottom: 3px solid #1882ed;
     padding-bottom: 0.5rem;
     display: inline-block;
@@ -67,4 +67,46 @@
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     border-left: 5px solid #1882ed;
+}
+
+.updateDate 
+{
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    
+    /* 修正点: */
+    color: #1882ed; /* 文字列ではなくハッシュコード形式に修正 */
+    margin-left: auto; /* これで要素を右端に寄せます */
+    margin-right: 1.5rem; /* 右端から離す距離を設定 (例: 1.5rem) */
+    
+    /* 装飾（既存のスタイルを維持） */
+    border-bottom: 3px solid #1882ed;
+    padding-bottom: 0.5rem;
+    display: inline-block;
+}
+
+
+.contentBox {
+    max-width: 1000px;
+    width: 90%; 
+    margin: 2rem auto;
+
+    background-color: #ffffff; 
+    border-radius: 8px; 
+    padding: 30px; 
+    line-height: 1.8; 
+    
+    /* 修正点 1: 薄いグレーの単色ボーダーを追加して、コントラストを確保 */
+    border: 1px solid #e0e0e0; 
+    
+    /* 修正点 2: 影を強め、青みがかった色でデザインに馴染ませる */
+    /* 影のパラメータ: Xオフセット Yオフセット ぼかし 広がり 色 */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08),  /* 一般的な薄い影 */
+                0 0 0 1px rgba(24, 130, 237, 0.1); /* 青の強調（#1882ed の薄いバージョン） */
+    
+    /* より強い影の例: 
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15); 
+    */
+    
+    /* MDXコンテンツ内の要素（h2, pなど）を調整したい場合はここに追記 */
 }

@@ -6,7 +6,8 @@ import GameContent from './content/GameCore';
 import BackIndexComponent from '../../../../component/pageComponent/BackIndexComponent'
 
 // メインページコンポーネント
-export default function GameA() {
+export default function GameA()
+{
     return (
 
         <>

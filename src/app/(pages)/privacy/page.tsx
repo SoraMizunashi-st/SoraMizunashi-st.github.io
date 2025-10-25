@@ -4,6 +4,8 @@ import Header from '../../../component/Header';
 
 import Privacy from './Privacy';
 
+import BackIndexComponent from '../../../component/pageComponent/BackIndexComponent'
+
 import Fotter from '../../../component/Fotter'; 
 
 // メインページコンポーネント
@@ -14,6 +16,11 @@ export default function Home() {
 
       <main className={styles.main}>
         <Privacy/>
+
+        <section className={styles.back}>
+          <BackIndexComponent/>
+        </section>
+
       </main>
 
       <Fotter/>

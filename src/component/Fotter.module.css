@@ -2,8 +2,13 @@
 .footer {
     display: flex;
     flex-direction: column;
+    background-color: #479dff;
     align-items: center;
     gap: 0.5rem;
+
+    min-height: 100px;  /* 最小高さを保証 */
+    width: 100%;       /* 親（.container）の幅いっぱいに広げる */
+    margin-top: auto;  /* これがフッターを画面最下部に押し出します */
 }
 
 .footerLinks {
@@ -11,7 +16,7 @@
 }
 
 .footerLink {
-    color: #1882ed;
+    color: #f8fbff;
     text-decoration: none;
     font-size: 0.9rem;
     transition: text-decoration 0.3s;
@@ -22,11 +27,11 @@
 }
 
 .separator {
-    color: #999999;
+    color: #ffffff;
     margin: 0 0.5rem;
 }
 
 .copyright {
     margin-top: 0;
-    color: #999999;
+    color: #ffffff;
 }

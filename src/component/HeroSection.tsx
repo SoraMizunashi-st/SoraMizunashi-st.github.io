@@ -9,7 +9,7 @@ export default function HeroSection() {
             ゲーム保管庫
           </h1>
           <p className={styles.heroSubtitle}>
-            StellaLab.が制作したゲーム等が保管されています。
+            現在工事中です。ご容赦くださいませ。
           </p>
           <a href="#contact" className={styles.ctaButton}>お問い合わせ</a>
         </section>

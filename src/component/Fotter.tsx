@@ -4,6 +4,9 @@ export default function Fotter() {
   return (
 
     <footer className={styles.footer}>
+        <div>
+          
+        </div>
         <div className={styles.footerLinks}>
             <a href="/privacy" className={styles.footerLink}>Privacy Policy</a>
             <span className={styles.separator}> | </span>

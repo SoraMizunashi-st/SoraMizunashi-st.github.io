@@ -8,6 +8,7 @@ import AboutSection from '../component/AboutSection';
 import GameProjectSection from '../component/GameProjectSection';
 import NewsSection from '../component/NewsSection';
 import ProjectSection from '../component/TopicProjectSection';
+import FaqSection from '../component/FaqSection';
 
 
 import Fotter from '../component/Fotter'; 
@@ -25,6 +26,7 @@ export default function Home() {
         <GameProjectSection/>
         <NewsSection/>
         <ProjectSection/>
+        <FaqSection/>
       </main>
 
       <Fotter/>

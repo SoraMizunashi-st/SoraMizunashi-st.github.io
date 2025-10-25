@@ -7,7 +7,8 @@ import GameA from './GameA';
 import Fotter from '../../../../component/Fotter'; 
 
 // メインページコンポーネント
-export default function Home() {
+export default function Home()
+{
   return (
     <div className={styles.container}>
       <Header/>
