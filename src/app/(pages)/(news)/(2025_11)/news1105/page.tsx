@@ -3,9 +3,10 @@
 import styles from './common.module.css';
 import news_styles from './news.module.css';
 
-
 import Header from '../../../../../component/Header';
 import Fotter from "../../../../../component/Fotter" 
+
+import BackIndexComponent from '../../../../../component/pageComponent/BackIndexComponent'
 
 import NewsContent from "./NewsContent.mdx";
 

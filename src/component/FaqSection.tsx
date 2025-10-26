@@ -7,8 +7,10 @@ export default function ProjectSection() {
         <section id="faq" className={styles.section}>
           <h2>FAQ</h2>
           <div className={styles.projectGrid}>
-            <div className={styles.projectItem}>Project A</div>
-            <div className={styles.projectItem}>Project B</div>
+            <div className={styles.projectItem}>FAQ1</div>
+            <div className={styles.projectItem}>FAQ2</div>
+            <div className={styles.projectItem}>FAQ3</div>
+            <div className={styles.projectItem}>FAQ4</div>
           </div>
         </section>
     );

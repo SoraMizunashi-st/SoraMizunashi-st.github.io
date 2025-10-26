@@ -1,10 +1,10 @@
 import styles from './common.module.css'; // 専用CSSモジュールをインポート
 
-import Header from '../../../component/Header';
+import Header from '../../../../../component/Header';
 
 import Privacy from './about_abseil';
 
-import Fotter from '../../../component/Fotter'; 
+import Fotter from '../../../../../component/Fotter'; 
 
 // メインページコンポーネント
 export default function Home() {

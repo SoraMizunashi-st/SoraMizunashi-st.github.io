@@ -9,6 +9,8 @@ import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 
+import BackHomeComponent from '@/component/pageComponent/BackHomeComponent';
+
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -32,8 +34,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <head>
-      </head>
+
       {/* Google Analytics/GTM の外部スクリプトのロード */}
         <Script 
           src="https://www.googletagmanager.com/gtag/js?id=G-PQJFFHRTR5" 
@@ -51,8 +52,11 @@ export default function RootLayout({
           `}
         </Script>
       <meta name="google-site-verification" content="O7facIH7zGAyCWirQEkwXsSL_1KJ3dcrlrb-Me-mies" />
+
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         {children}
+
+        <BackHomeComponent />
       </body>
     </html>
   );

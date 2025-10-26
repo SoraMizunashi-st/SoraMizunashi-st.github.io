@@ -11,6 +11,7 @@ export default function Header() {
         <a href="#about" className={styles.navItem}>About</a>
         <a href="#news" className={styles.navItem}>News</a>
         <a href="#game_section" className={styles.navItem}>Game</a>
+        <a href="#tools" className={styles.navItem}>Tools</a>
         <a href="#topic" className={styles.navItem}>Topic</a>
         <a href="#faq" className={styles.navItem}>FAQ</a>
         <a href="#contact" className={styles.navItem}>Contact</a>

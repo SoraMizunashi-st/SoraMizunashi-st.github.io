@@ -1,11 +1,20 @@
 
 
-.hero {
-    /* ヒーローセクション：クリーンな白ベース、広めのパディング */
+.hero
+{
+    background-image: url('/Hero/HeroBackground.jpg'); 
+  
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  
+
+    min-height: 60vh;
+    width: 100%;
+
     padding: 10rem 5%; 
     text-align: center;
     background-color: #ffffff;
-    min-height: 60vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -15,12 +24,12 @@
 .heroTitle {
     font-size: 3.5rem;
     margin-bottom: 1rem;
-    color: #1a1a1a;
+    color: #ffffff;
 }
 
 .heroSubtitle {
     font-size: 1.35rem;
-    color: #555555;
+    color: #fafafa;
     margin-bottom: 2.5rem;
 }
 

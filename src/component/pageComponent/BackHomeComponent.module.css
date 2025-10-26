@@ -1,0 +1,40 @@
+/* components/BackHomeComponent/BackHomeComponent.module.css */
+
+.floatingButton {
+    /* 画面右下に固定配置 */
+    position: fixed;
+    bottom: 20px; /* 下から20px */
+    right: 20px;  /* 右から20px */
+    z-index: 1000; /* 他の要素より手前に表示 */
+}
+
+.linkButton {
+    /* ボタンのスタイル */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    /* サイズと形状 */
+    width: 60px;
+    height: 60px;
+    border-radius: 50%; /* 完全な丸型 */
+    
+    /* 色と影 */
+    background-color: #1882ed; /* メインカラー（青） */
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25); /* 影で浮いているように見せる */
+    
+    /* ホバーアニメーション */
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.linkButton:hover {
+    /* ホバー時にわずかに拡大 */
+    transform: scale(1.1);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.35); /* 影を強調 */
+}
+
+/* アイコンのサイズ調整 (Google Material Iconsの場合) */
+.linkButton .material-icons {
+    font-size: 32px;
+}
