@@ -31,7 +31,34 @@
     margin: 0 0.5rem;
 }
 
-.copyright {
+.otherText
+{
     margin-top: 0;
     color: #ffffff;
+}
+
+.copyright
+{
+    margin-top: 0;
+    color: #ffffff;
+}
+
+
+.contactInfo
+{
+  border-top: 1px solid var(--color-border, #ffffff);
+  padding-top: 15px;
+  margin-top: 15px;
+  width: 90%
+
+
+  
+}
+
+.copyrightContainer
+{
+  border-top: 1px solid var(--color-border, #ffffff);
+  padding-top: 15px;
+  margin-top: 15px;
+  width: 90%
 }

@@ -11,7 +11,7 @@ import BackIndexComponent from '../../../../component/pageComponent/BackIndexCom
 
 import ToolsContent from "./ToolsContent.mdx";
 
-// メインページコンポーネント
+// OBS StyleSheetまとめ
 export default function Home() {
   return (
     <div className={styles.container}>
