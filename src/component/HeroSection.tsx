@@ -5,6 +5,7 @@ import styles from './HeroSection.module.css';
 export default function HeroSection() {
     return (
         <section className={styles.hero}>
+          <img src = "/Hero/HeroBackground.jpg" loading="lazy"/>
           <h1 className={styles.heroTitle}>
             StellaLabの保管庫
           </h1>
