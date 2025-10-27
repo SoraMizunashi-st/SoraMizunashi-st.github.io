@@ -10,7 +10,7 @@
 }
 
 /* 2. toolsContentContainer: メインコンテンツのコンテナ (元のnewsBox装飾を適用) */
-.toolsContentContainer {
+.newsBox {
     background-color: #ffffff; 
     border-radius: 8px; 
     padding: 30px; 
@@ -40,7 +40,7 @@
 
 @media (min-width: 768px) {
     /* tmpGridをGridレイアウトに */
-    .twoColomn {
+    .tmpGrid {
         display: grid;
         max-width: 1200px; /* PCではより広く */
         

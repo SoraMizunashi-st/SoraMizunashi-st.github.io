@@ -20,6 +20,7 @@
     "@next/third-parties": "^16.0.0",
     "@splidejs/react-splide": "^0.7.12",
     "@splidejs/splide": "^4.1.4",
+    "mui-color-input": "^7.0.0",
     "next": "^16.0.0",
     "react": "19.1.0",
     "react-dom": "19.1.0"

@@ -1,15 +1,15 @@
 "use client";
 
 import styles from './common.module.css';
-import tools_styles from './tools.module.css';
+import news_styles from './news.module.css';
 
 
-import Header from '../../../../component/Header';
-import Fotter from "../../../../component/Fotter" 
+import Header from '../../../../../component/Header';
+import Fotter from "../../../../../component/Fotter" 
 
-import BackIndexComponent from '../../../../component/pageComponent/BackIndexComponent'
+import BackIndexComponent from '../../../../../component/pageComponent/BackIndexComponent'
 
-import ToolsContent from "./ToolsContent.mdx";
+import NewsContent from "./NewsContent.mdx";
 
 // メインページコンポーネント
 export default function Home() {
@@ -18,16 +18,16 @@ export default function Home() {
       <Header/>
 
       <main className={styles.main}>
-        <div className={tools_styles.twoColomn}>
+        <div className={news_styles.tmpGrid}>
           {/* メインコンテンツ側 */}
-          <div className={tools_styles.toolsContentContainer}>
-            <ToolsContent/>
+          <div className={news_styles.toolsContentContainer}>
+            <NewsContent/>
           </div>
           
           {/* サイドバー側 (スケルトン) */}
-          <div className={tools_styles.sidebarContainer}>
+          <div className={news_styles.sidebarContainer}>
             {/* <Sidebar/>が将来ここに入ります */}
-            <div className={tools_styles.sidebarSkeleton}>
+            <div className={news_styles.sidebarSkeleton}>
               {/* サイドバーのコンテンツが非表示の場合は、ここが空になります */}
             </div>
           </div>

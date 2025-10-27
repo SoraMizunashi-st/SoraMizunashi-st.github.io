@@ -1,2 +1,227 @@
 
-# OBS StyleSheet(CSS)まとめ
+import styles from "./textDecorator.module.css"
+import ColorPicker from "../../../../component/ui/ColorPicker"
+import FontList from "../../../../component/ui/FontList"
+
+{/*編集段階の***は、全体ができた段階でレイアウト最適化する事*/}
+
+# OBS Comment Custum Generator v1.0.0
+<p>本ツールは、PC版webブラウザでの使用を想定しています。</p>
+<br/>
+***
+## プリセットを使用する場合選択してください。
+<p>※特に指定が無い場合、一般的な上から下に流れるコメント欄として出力します。</p>
+<br/>
+{/* <PresetDropBox/>*/}
+
+***
+## (1)コメントのスタイル
+***
+
+<div className={ styles.controlRow }>
+    <div className={ styles.controlLabel}>
+        <p>◆フォント指定</p>
+    </div>
+    <div>
+        <FontList/>
+    </div>
+</div>
+
+<div className={ styles.controlRow }>
+    <div className={ styles.controlLabel}>
+        <p>◆文字色(コメント自体の文字色)</p>
+    </div>
+    <div>
+        <ColorPicker/>
+    </div>
+</div>
+
+<div className={ styles.controlRow }>
+    <div className={ styles.controlLabel}>
+        <p>◆文字の縁どり</p>
+    </div>
+    <div>
+        {/*<RaddioButton/> or OnOffSwitch*/}
+    </div>
+</div>
+
+<div className={ styles.controlRow }>
+    <div className={ styles.controlLabel}>
+        <p>◆ふちどり色</p>
+    </div>
+    <div>
+        <ColorPicker/>
+    </div>
+</div>
+
+***
+## (2)アイコン
+***
+
+<div className={ styles.controlRow }>
+    <div className={ styles.controlLabel}>
+        <p>◆アイコン表示</p>
+    </div>
+    <div>
+        {/*<RaddioButton/> or OnOffSwitch*/}
+    </div>
+</div>
+
+<div className={ styles.controlRow }>
+    <div className={ styles.controlLabel}>
+        <p>◆アイコン枠の形状</p>
+    </div>
+    <div>
+        {/* DropBox or Raddio button ?*/}
+    </div>
+</div>
+
+<div className={ styles.controlRow }>
+    <div className={ styles.controlLabel}>
+        <p>◆アイコンサイズ</p>
+    </div>
+    <div>
+        {/* SlideBar */}
+    </div>
+</div>
+***
+## (3)ネームハイライト&バッジ
+***
+### チャンネルオーナー(あなた自身)
+
+<div className={ styles.controlRow }>
+    <div className={ styles.controlLabel}>
+        <p>◆ネームハイライト色</p>
+    </div>
+    <div>
+        <ColorPicker/>
+    </div>
+</div>
+<div className={ styles.controlRow }>
+    <div className={ styles.controlLabel}>
+        <p>◆バッジ</p>
+    </div>
+    <div>
+        {/* On / OFF */}
+    </div>
+</div>
+
+### モデレーター
+
+<div className={ styles.controlRow }>
+    <div className={ styles.controlLabel}>
+        <p>◆ネームハイライト色</p>
+    </div>
+    <div>
+        <ColorPicker/>
+    </div>
+</div>
+<div className={ styles.controlRow }>
+    <div className={ styles.controlLabel}>
+        <p>◆バッジ</p>
+    </div>
+    <div>
+        {/* On / OFF */}
+    </div>
+</div>
+
+### メンバーシップ
+
+<div className={ styles.controlRow }>
+    <div className={ styles.controlLabel}>
+        <p>◆ネームハイライト色</p>
+    </div>
+    <div>
+        <ColorPicker/>
+    </div>
+</div>
+<div className={ styles.controlRow }>
+    <div className={ styles.controlLabel}>
+        <p>◆バッジ</p>
+    </div>
+    <div>
+        {/* On / OFF */}
+    </div>
+</div>
+
+### オプション
+<p>一般に非推奨とされる項目です。</p>
+
+<div className={ styles.controlRow }>
+    <div className={ styles.controlLabel}>
+        <p>◆チャンネル登録ユーザーと一般ユーザーを色分けする。</p>
+    </div>
+    <div>
+        {/* On / OFF */}
+    </div>
+</div>
+
+<div className={ styles.controlRow }>
+    <div className={ styles.controlLabel}>
+        <p>◆チャンネル登録ユーザーのハイライト色</p>
+    </div>
+    <div>
+        <ColorPicker/>
+    </div>
+</div>
+
+***
+## (4)有料コンテンツ対応
+***
+<div className={ styles.controlRow }>
+    <div className={ styles.controlLabel}>
+        <p>◆スーパーチャット時アニメーション</p>
+    </div>
+    <div>
+        {/* dropdown ( default = None ) */}
+    </div>
+</div>
+
+<div className={ styles.controlRow }>
+    <div className={ styles.controlLabel}>
+        <p>◆メンバーシップアニメーション</p>
+    </div>
+    <div>
+        {/* dropdown ( default = None ) */}
+    </div>
+</div>
+
+
+***
+## (5)基礎アニメーション
+***
+
+<div className={ styles.controlRow }>
+    <div className={ styles.controlLabel}>
+        <p>◆コメントアニメーション</p>
+    </div>
+    <div>
+        {/* dropdown ( default = None ) */}
+    </div>
+</div>
+
+***
+## (6)パーティクル
+***
+
+<div className={ styles.controlRow }>
+    <div className={ styles.controlLabel}>
+        <p>◆基本コメントのパーティクルON</p>
+    </div>
+    <div>
+        {/* ON / OFF */}
+    </div>
+</div>
+
+***
+## (7)その他
+***
+
+<div className={ styles.controlRow }>
+    <div className={ styles.controlLabel}>
+        <p>◆コメント前方にタイムスタンプを付与する。</p>
+    </div>
+    <div>
+        {/* ON / OFF */}
+    </div>
+</div>

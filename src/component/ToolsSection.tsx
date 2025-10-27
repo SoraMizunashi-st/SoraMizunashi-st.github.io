@@ -9,7 +9,7 @@ export default function ToolsSection() {
           <div className={styles.projectGrid}>
             <div className={styles.projectItem}>
               {/* 将来的に、カードサイズが確定した時は、文字じゃなくて、画像自体(カード全体)をリンク埋め込み対象にする事！！*/}
-              <a href="/OBS_CSS">OBSでよく使われるStyleSheet(CSS)まとめ</a>
+              <a href="/OBS_CSS">OBS Comment Custum Generator</a>
             </div>
 
             <div className={styles.projectItem}>

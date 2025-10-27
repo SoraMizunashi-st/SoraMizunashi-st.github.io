@@ -11,14 +11,32 @@ import BackIndexComponent from '../../../../component/pageComponent/BackIndexCom
 
 import ToolsContent from "./ToolsContent.mdx";
 
+// React & @mui
+import React, { useState } from 'react';
+import { MuiColorInput } from 'mui-color-input';
+
 // OBS StyleSheetまとめ
-export default function Home() {
+export default function Home()
+{
   return (
     <div className={styles.container}>
       <Header/>
 
-      <main className={tools_styles.newsBox}>
-        <ToolsContent/>
+      <main className={styles.main}>
+        <div className={tools_styles.twoColomn}>
+          {/* メインコンテンツ側 */}
+          <div className={tools_styles.toolsContentContainer}>
+            <ToolsContent/>
+          </div>
+          
+          {/* サイドバー側 (スケルトン) */}
+          <div className={tools_styles.sidebarContainer}>
+            {/* ここで、プレビューする？ */}
+            <div className={tools_styles.sidebarSkeleton}>
+              {/* サイドバーのコンテンツが非表示の場合は、ここが空になります */}
+            </div>
+          </div>
+        </div>
       </main>
 
       <section className={styles.back}>
