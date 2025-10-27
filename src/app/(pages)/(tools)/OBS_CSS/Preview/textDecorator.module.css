@@ -1,0 +1,128 @@
+/* ----------------------------------------------------------------------- */
+/* textDecorator.module.css: MDX/記事コンテンツの基礎スタイル */
+/* ----------------------------------------------------------------------- */
+
+/* コンテンツ全体のラッパー (MDXがレンダリングされる要素) */
+.contentWrapper {
+    /* フォントと行間の設定 */
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.7; /* 読みやすい行間 */
+    color: #333333; /* 本文色 */
+    max-width: 700px; /* 適切な行長に制限 */
+    margin: 0 auto; /* 中央寄せ */
+    padding: 20px;
+}
+
+/* 1. 見出し (Headings) */
+.contentWrapper h1,
+.contentWrapper h2,
+.contentWrapper h3,
+.contentWrapper h4 {
+    margin-top: 2.5rem; /* 上部に大きな余白 */
+    margin-bottom: 1rem;
+    font-weight: 700; /* 太字 */
+    line-height: 1.3;
+}
+
+.contentWrapper h1 {
+    font-size: 2em;
+    border-bottom: 2px solid #eeeeee; /* 記事の区切り */
+    padding-bottom: 0.3em;
+}
+
+.contentWrapper h2 {
+    font-size: 1.6em;
+    color: #1a1a1a;
+}
+
+.contentWrapper h3 {
+    font-size: 1.3em;
+    color: #4a4a4a;
+}
+
+/* 2. 段落 (Paragraph) */
+.contentWrapper p {
+    margin-bottom: 1.5rem; /* 段落間に明確な余白 */
+}
+
+/* 3. リスト (Lists) */
+.contentWrapper ul,
+.contentWrapper ol {
+    margin-bottom: 1.5rem;
+    padding-left: 20px; /* インデント */
+    line-height: 1.6;
+}
+
+.contentWrapper li {
+    margin-bottom: 0.5rem;
+}
+
+/* 4. リンク (Links) */
+.contentWrapper a {
+    color: #187bcd; /* 標準的な青色リンク */
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.contentWrapper a:hover {
+    text-decoration: underline;
+    color: #0d47a1;
+}
+
+/* 5. 引用 (Blockquote) */
+.contentWrapper blockquote {
+    margin: 2rem 0;
+    padding: 15px 20px;
+    border-left: 4px solid #f0b800; /* 目立つ強調色 */
+    background-color: #fffbe6; /* 淡い背景色 */
+    color: #555555;
+    font-style: italic;
+}
+
+/* 6. コードとプリフォーマット (Code/Pre) */
+.contentWrapper code {
+    background-color: #f5f5f5;
+    padding: 2px 5px;
+    border-radius: 3px;
+    font-family: 'Consolas', 'Courier New', monospace;
+    font-size: 0.9em;
+    color: #d84315; /* インラインコードの色 */
+}
+
+.contentWrapper pre {
+    background-color: #2d2d2d;
+    color: #cccccc;
+    padding: 15px;
+    border-radius: 6px;
+    overflow-x: auto; /* 長いコードのための横スクロール */
+    margin: 2rem 0;
+}
+
+/* 7. 水平線 (Horizontal Rule) */
+.contentWrapper hr {
+    margin: 3rem auto;
+    border: 0;
+    border-top: 1px solid #eeeeee;
+    width: 50%; /* 記事の区切りを視覚的に強調 */
+}
+
+.controlRow {
+    display: flex;
+    align-items: center; /* 垂直方向の中央揃え */
+    justify-content: space-between; /* 両端に配置 */
+    margin-bottom: 1.5rem;
+    padding: 10px 0;
+    border-bottom: 1px dashed #f0f0f0; /* 項目間の区切り */
+}
+
+/* 設定項目のラベル（見出し語） */
+.controlLabel {
+    /* ラベルのフォントサイズ調整。pタグのスタイルが適用されないように上書き */
+    font-size: 1em;
+    font-weight: 500;
+    color: #333333;
+    margin: 0; /* pタグのデフォルトマージンをリセット */
+    /* ラベルが長くなってもピッカーを圧迫しすぎないように最大幅を設定 */
+    flex-shrink: 0; 
+    padding-right: 20px;
+}

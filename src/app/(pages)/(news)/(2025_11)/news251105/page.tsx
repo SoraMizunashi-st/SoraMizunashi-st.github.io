@@ -17,7 +17,7 @@ export default function Home() {
       <Header/>
 
       <main className={styles.main}>
-        <div className={news_styles.tmpGrid}>
+        <div className={news_styles.twoColomnGrid}>
           {/* メインコンテンツ側 */}
           <div className={news_styles.toolsContentContainer}>
             <NewsContent/>

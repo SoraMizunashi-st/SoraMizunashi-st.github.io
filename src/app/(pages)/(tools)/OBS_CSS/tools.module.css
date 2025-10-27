@@ -1,7 +1,4 @@
-
-/* 1. tmpGrid: 2段組みの親コンテナ */
-.twoColomnGrid
-{
+.twoColomnGrid {
     /* デフォルト（スマホ）では縦並び */
     display: block; 
     max-width: 1000px;
@@ -9,62 +6,48 @@
     margin: 2rem auto;
 }
 
-/* 2. toolsContentContainer: メインコンテンツのコンテナ (元のnewsBox装飾を適用) */
 .toolsContentContainer {
     background-color: #ffffff; 
     border-radius: 8px; 
     padding: 30px; 
     line-height: 1.8; 
-    
     border: 1px solid #e0e0e0; 
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08),
                 0 0 0 1px rgba(24, 130, 237, 0.1);
 }
 
-/* 3. sidebarContainer: サイドバーのコンテナ（デフォルトではメインの下に表示） */
 .sidebarContainer {
-    /* スマホでは特に何もしない */
-    margin-top: 2rem; /* メインコンテンツとの隙間 */
+    margin-top: 2rem; 
 }
 
-/* 4. sidebarSkeleton: 将来のサイドバー用コンテンツ（非表示） */
 .sidebarSkeleton {
-    /* スマホでは完全に非表示 */
     display: none; 
 }
-
 
 /* ----------------------------------------------------- */
 /* PCでのみ適用される2段組みレイアウト (min-width: 768px) */
 /* ----------------------------------------------------- */
 
 @media (min-width: 768px) {
-    /* tmpGridをGridレイアウトに */
-    .twoColomn {
+    /* 親コンテナをGridレイアウトに */
+    .twoColomnGrid {
         display: grid;
-        max-width: 1200px; /* PCではより広く */
-        
-        /* 2列構成: メイン(2fr) と サイドバー(1fr) */
-        grid-template-columns: 2fr 1fr;
-        gap: 30px; /* カラム間の隙間 */
-        margin: 2rem auto;
+        /* PCでの max-width を 80% に変更 */
+        max-width: 80%; 
+        grid-template-columns: 6fr 4fr;
+        gap: 30px;
     }
     
-    /* toolsContentContainer: 装飾はそのまま */
-
-    /* sidebarContainer: メインとの隙間を削除し、Gridの2列目へ */
     .sidebarContainer {
         margin-top: 0;
     }
 
-    /* sidebarSkeleton: PCでのみ表示 */
     .sidebarSkeleton {
         display: block;
-        /* サイドバーの装飾 */
         background-color: #f7f7f7;
         border-radius: 8px;
         padding: 20px;
         border: 1px solid #e0e0e0;
-        height: 100%; /* 親要素に合わせる */
+        height: 100%; 
     }
 }

@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { FormControl, InputLabel, Select, MenuItem } from '@mui/material';
 
 const GOOGLE_FONTS = [
+    { name: 'Default', value: 'Default'},
     { name: 'Noto Sans JP', value: 'Noto Sans JP' },
     { name: 'Roboto', value: 'Roboto' },
     { name: 'Oswald', value: 'Oswald' },

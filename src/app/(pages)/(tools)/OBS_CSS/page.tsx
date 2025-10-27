@@ -9,11 +9,10 @@ import Fotter from "../../../../component/Fotter"
 
 import BackIndexComponent from '../../../../component/pageComponent/BackIndexComponent'
 
-import ToolsContent from "./ToolsContent.mdx";
+import ToolsInterface from "./ToolsContent.mdx";
+import PreviewBox from "./Preview/preview";
+import OutputBox from "./Preview/output";
 
-// React & @mui
-import React, { useState } from 'react';
-import { MuiColorInput } from 'mui-color-input';
 
 // OBS StyleSheetまとめ
 export default function Home()
@@ -23,19 +22,22 @@ export default function Home()
       <Header/>
 
       <main className={styles.main}>
-        <div className={tools_styles.twoColomn}>
+        <div className={tools_styles.twoColomnGrid}>
           {/* メインコンテンツ側 */}
           <div className={tools_styles.toolsContentContainer}>
-            <ToolsContent/>
+            <ToolsInterface/>
           </div>
           
           {/* サイドバー側 (スケルトン) */}
           <div className={tools_styles.sidebarContainer}>
-            {/* ここで、プレビューする？ */}
             <div className={tools_styles.sidebarSkeleton}>
-              {/* サイドバーのコンテンツが非表示の場合は、ここが空になります */}
+              <PreviewBox/>
             </div>
           </div>
+        </div>
+
+        <div>
+          <OutputBox/>
         </div>
       </main>
 
