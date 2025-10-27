@@ -1,8 +1,18 @@
 
 import styles from "./textDecorator.module.css"
 
-import ColorPicker from "../../../../component/ui/ColorPicker"
+import PresetList from "./component/ObsGeneratorPreset"
 import FontList from "../../../../component/ui/FontList"
+import FontSizeSlider from "./component/FontSizeSlider"
+import IconFrameShapeList from "./component/IconFrameShapeList"
+import IconSizeSlider from "./component/IconSizeSlider"
+import OnOffSwitch from "./component/OnOffSwitch"
+
+import SuperChatAnimationList from "./component/SuperChatAnimationList"
+import MemberShipAnimationList from "./component/MembershipAnimationList"
+
+
+import ColorPicker from "../../../../component/ui/ColorPicker"
 
 {/*編集段階の***は、全体ができた段階でレイアウト最適化する事*/}
 
@@ -14,7 +24,15 @@ import FontList from "../../../../component/ui/FontList"
 <h2> プリセットを使用する場合選択してください。</h2> 
 <p>※特に指定が無い場合、一般的な上から下に流れるコメント欄として出力します。</p>
 <br/>
-{/* <PresetDropBox/>*/}
+
+<div className={ styles.controlRow }>
+    <div className={ styles.controlLabel}>
+        <p>◆プリセット</p>
+    </div>
+    <div>
+        <PresetList/>
+    </div>
+</div>
 
 <hr/>
 <h2>(1)基本スタイル</h2> 
@@ -34,7 +52,8 @@ import FontList from "../../../../component/ui/FontList"
         <p>◆フォントサイズ</p>
     </div>
     <div>
-        {/*<FontSizeList/>*/}
+        {/*将来的に、スライダーの値を上部ポップアウト以外でわかりやすく表示するようにする。*/}
+        <FontSizeSlider/>
     </div>
 </div>
 
@@ -52,7 +71,7 @@ import FontList from "../../../../component/ui/FontList"
         <p>◆文字の縁どり</p>
     </div>
     <div>
-        {/*<RaddioButton/> or OnOffSwitch*/}
+        <OnOffSwitch/>
     </div>
 </div>
 
@@ -74,7 +93,7 @@ import FontList from "../../../../component/ui/FontList"
         <p>◆アイコン表示</p>
     </div>
     <div>
-        {/*<RaddioButton/> or OnOffSwitch*/}
+        <OnOffSwitch/>
     </div>
 </div>
 
@@ -83,7 +102,7 @@ import FontList from "../../../../component/ui/FontList"
         <p>◆アイコン枠の形状</p>
     </div>
     <div>
-        {/* DropBox or Raddio button ?*/}
+        <IconFrameShapeList/>
     </div>
 </div>
 
@@ -92,7 +111,8 @@ import FontList from "../../../../component/ui/FontList"
         <p>◆アイコンサイズ</p>
     </div>
     <div>
-        {/* SlideBar */}
+        {/*将来的に、スライダーの値を上部ポップアウト以外でわかりやすく表示するようにする。*/}
+        <IconSizeSlider/>
     </div>
 </div>
 <hr/>
@@ -113,7 +133,7 @@ import FontList from "../../../../component/ui/FontList"
         <p>◆バッジ</p>
     </div>
     <div>
-        {/* On / OFF */}
+        <OnOffSwitch/>
     </div>
 </div>
 
@@ -132,7 +152,7 @@ import FontList from "../../../../component/ui/FontList"
         <p>◆バッジ</p>
     </div>
     <div>
-        {/* On / OFF */}
+        <OnOffSwitch/>
     </div>
 </div>
 
@@ -151,7 +171,7 @@ import FontList from "../../../../component/ui/FontList"
         <p>◆バッジ</p>
     </div>
     <div>
-        {/* On / OFF */}
+        <OnOffSwitch/>
     </div>
 </div>
 
@@ -163,7 +183,16 @@ import FontList from "../../../../component/ui/FontList"
         <p>◆チャンネル登録ユーザーと一般ユーザーを色分けする。</p>
     </div>
     <div>
-        {/* On / OFF */}
+        <OnOffSwitch/>
+    </div>
+</div>
+
+<div className={ styles.controlRow }>
+    <div className={ styles.controlLabel}>
+        <p>◆初見さんをハイライト</p>
+    </div>
+    <div>
+        <OnOffSwitch/>
     </div>
 </div>
 
@@ -179,12 +208,22 @@ import FontList from "../../../../component/ui/FontList"
 <hr/>
 <h2>(4)有料コンテンツ対応</h2> 
 <hr/>
+
+<div className={ styles.controlRow }>
+    <div className={ styles.controlLabel}>
+        <p>◆金額ごとのカラーリングで背景を塗りつぶす。</p>
+    </div>
+    <div>
+        <OnOffSwitch/>
+    </div>
+</div>
+
 <div className={ styles.controlRow }>
     <div className={ styles.controlLabel}>
         <p>◆スーパーチャット時アニメーション</p>
     </div>
     <div>
-        {/* dropdown ( default = None ) */}
+        <SuperChatAnimationList/>
     </div>
 </div>
 
@@ -193,18 +232,36 @@ import FontList from "../../../../component/ui/FontList"
         <p>◆メンバーシップアニメーション</p>
     </div>
     <div>
-        {/* dropdown ( default = None ) */}
+        <MemberShipAnimationList/>
     </div>
 </div>
 
 
 <hr/>
-<h2>(5)基礎アニメーション</h2> 
+<h2>(5)アニメーション</h2> 
 <hr/>
 
 <div className={ styles.controlRow }>
     <div className={ styles.controlLabel}>
-        <p>◆コメントアニメーション</p>
+        <p>◆基本コメントアニメーション</p>
+    </div>
+    <div>
+        {/* dropdown ( default = None ) */}
+    </div>
+</div>
+
+<div className={ styles.controlRow }>
+    <div className={ styles.controlLabel}>
+        <p>◆出現時のコメントアニメーション</p>
+    </div>
+    <div>
+        {/* dropdown ( default = None ) */}
+    </div>
+</div>
+
+<div className={ styles.controlRow }>
+    <div className={ styles.controlLabel}>
+        <p>◆退場時のコメントアニメーション</p>
     </div>
     <div>
         {/* dropdown ( default = None ) */}
@@ -217,10 +274,55 @@ import FontList from "../../../../component/ui/FontList"
 
 <div className={ styles.controlRow }>
     <div className={ styles.controlLabel}>
-        <p>◆基本コメントのパーティクルON</p>
+        <p>◆基本コメントパーティクルをON</p>
     </div>
     <div>
-        {/* ON / OFF */}
+        <OnOffSwitch/>
+    </div>
+</div>
+
+<div className={ styles.controlRow }>
+    <div className={ styles.controlLabel}>
+        <p>◆基本コメントパーティクルの種類</p>
+    </div>
+    <div>
+        {/* dropdown ( default = None ) */}
+    </div>
+</div>
+
+<div className={ styles.controlRow }>
+    <div className={ styles.controlLabel}>
+        <p>◆コメント出現時パーティクルをON</p>
+    </div>
+    <div>
+        <OnOffSwitch/>
+    </div>
+</div>
+
+<div className={ styles.controlRow }>
+    <div className={ styles.controlLabel}>
+        <p>◆コメント出現時パーティクルの種類</p>
+    </div>
+    <div>
+        {/* dropdown ( default = None ) */}
+    </div>
+</div>
+
+<div className={ styles.controlRow }>
+    <div className={ styles.controlLabel}>
+        <p>◆コメント退場時パーティクルをON</p>
+    </div>
+    <div>
+        <OnOffSwitch/>
+    </div>
+</div>
+
+<div className={ styles.controlRow }>
+    <div className={ styles.controlLabel}>
+        <p>◆コメント退場時時パーティクルの種類</p>
+    </div>
+    <div>
+        {/* dropdown ( default = None ) */}
     </div>
 </div>
 
@@ -233,6 +335,15 @@ import FontList from "../../../../component/ui/FontList"
         <p>◆コメント前方にタイムスタンプを付与する。</p>
     </div>
     <div>
-        {/* ON / OFF */}
+        <OnOffSwitch/>
+    </div>
+</div>
+
+<div className={ styles.controlRow }>
+    <div className={ styles.controlLabel}>
+        <p>◆コメント削除を非表示にする。(※このコメントは削除されました、自体を表示しない。)</p>
+    </div>
+    <div>
+        <OnOffSwitch/>
     </div>
 </div>

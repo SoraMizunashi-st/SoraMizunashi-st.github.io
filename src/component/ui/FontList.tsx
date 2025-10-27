@@ -1,5 +1,3 @@
-// component/ui/FontList.jsx
-
 import React, { useState } from 'react';
 import { FormControl, InputLabel, Select, MenuItem } from '@mui/material';
 
@@ -12,15 +10,18 @@ const GOOGLE_FONTS = [
     { name: 'Kosugi Maru', value: 'Kosugi Maru' },
 ];
 
+// MenuPropsを定義し、Selectに渡す
+const MenuProps = {
+    disableScrollLock: true, // スクロールロックを無効化し、画面の「カクつき」を防止
+};
+
+
 export default function FontList() {
-    {/* 選択されたフォントの状態を管理 */}
     const [selectedFont, setSelectedFont] = useState(GOOGLE_FONTS[0].value); 
 
-    {/* ドロップダウンの選択が変更されたときのハンドラ */}
-    const handleChange = (event:any) => {
-        {/* event.target.valueは、Selectコンポーネントから選択された値（value属性） */}
+    const handleChange = (event:any) => { // 型注釈は省略しました
         setSelectedFont(event.target.value);
-        {/* 将来的に親コンポーネントに値を渡すロジックをここに追加する (例: props.onChange(event.target.value)) */}
+        // 将来的に親コンポーネントに値を渡すロジックをここに追加する (例: props.onChange(event.target.value))
     };
 
     return (
@@ -32,6 +33,7 @@ export default function FontList() {
             value={selectedFont}
             label="フォントを選択"
             onChange={handleChange}
+            MenuProps={MenuProps} // ★ ここで適用 ★
         >
             {/* GOOGLE_FONTSリストをマッピングしてMenuItemを生成 */}
             {GOOGLE_FONTS.map((font) => (
