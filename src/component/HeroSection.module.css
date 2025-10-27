@@ -2,28 +2,31 @@
 
 .hero
 { 
+    /* -------------------- */
+    /* LAYOUT & SIZING (既存) */
+    /* -------------------- */
     min-height: 60vh;
     width: 100%;
-
     padding: 10rem 5%; 
     text-align: center;
-    background-color: #ffffff;
+    background-color: #ffffff; /* 画像がロードされない場合の背景色 */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-}
-
-.hero-section
-{
-    /* img要素に適用された画像を参照し、背景として使用 */
-    background-image: url('/Hero/HeroBackground.jpg');
-    /* サイズ定義など */
-    min-height: 60vh;
-    width: 100%;
+    
+    /* -------------------- */
+    /* BACKGROUND IMAGE (追加) */
+    /* -------------------- */
+    background-image: url('/Hero/HeroBackground.jpg'); /* 背景画像を追加 */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+}
+
+/* 画像は遅延ロード用として非表示のまま */
+.hero-preload-img {
+    display: none; 
 }
 
 .hero-preload-img {

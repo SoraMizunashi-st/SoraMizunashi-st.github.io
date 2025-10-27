@@ -8,7 +8,7 @@ export default function HeroSection() {
           <img  src = "/Hero/HeroBackground.jpg"
                 loading="lazy"
                 alt = "heroBackGround"
-                className="hero-preload-img"
+                className={styles['hero-preload-img']}
           />
 
           <h1 className={styles.heroTitle}>
