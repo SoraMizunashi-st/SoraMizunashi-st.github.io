@@ -2,11 +2,6 @@
 
 .hero
 { 
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-  
-
     min-height: 60vh;
     width: 100%;
 
@@ -17,6 +12,23 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.hero-section
+{
+    /* img要素に適用された画像を参照し、背景として使用 */
+    background-image: url('/Hero/HeroBackground.jpg');
+    /* サイズ定義など */
+    min-height: 60vh;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.hero-preload-img {
+    /* img要素を完全に非表示にする（コンテンツ幅にも影響を与えない） */
+    display: none; 
 }
 
 .heroTitle {
