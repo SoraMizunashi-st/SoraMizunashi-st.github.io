@@ -9,7 +9,7 @@ import Fotter from "../../../../component/Fotter"
 
 import BackIndexComponent from '../../../../component/pageComponent/BackIndexComponent'
 
-import ToolsInterface from "./ToolsContent.mdx";
+import ToolsInterface from "./ToolsInterfaceContainer";
 import PreviewBox from "./Preview/preview";
 import OutputBox from "./Preview/output";
 

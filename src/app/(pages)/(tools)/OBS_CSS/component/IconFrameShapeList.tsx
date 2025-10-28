@@ -5,16 +5,32 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 
-export default function IconFrameShapeList() {
-  const [shape, setShape] = React.useState('');
+// Propsの型を定義
+interface IconFrameShapeListProps {
+  path: string; // Stateツリー内のパス ('icon.frameShape')
+  setSetting: (path: string, value: string) => void; // 親の汎用Setter関数
+  currentValue: string; // 現在のStateの値
+}
 
+export default function IconFrameShapeList({ path, setSetting, currentValue }: IconFrameShapeListProps) {
+  
   const handleChange = (event: SelectChangeEvent) => {
-    setShape(event.target.value as string);
+    const newValue = event.target.value as string;
+    
+    // 1. 親の汎用Setter関数を呼び出し、Stateツリーを更新
+    setSetting(path, newValue);
   };
 
   const MenuProps = {
     disableScrollLock: true,
   };
+
+  // 形状オプションのリスト（CSSで使いやすい文字列値を使用）
+  const shapes = [
+    { label: '丸', value: 'circle' },
+    { label: '四角(角90度)', value: 'square' },
+    { label: '四角(角円形)', value: 'rounded' },
+  ];
 
   return (
     <Box sx={{ minWidth: 150 }}>
@@ -23,14 +39,19 @@ export default function IconFrameShapeList() {
         <Select
           labelId="icon-shape-select-label"
           id="icon-shape-select"
-          value={shape}
+          
+          // 2. Stateの値として currentValue を使用
+          value={currentValue}
+          
           label="アイコン形状"
           onChange={handleChange}
           MenuProps={MenuProps}
         >
-          <MenuItem value={10}>丸</MenuItem>
-          <MenuItem value={20}>四角(角90度)</MenuItem>
-          <MenuItem value={30}>四角(角円形)</MenuItem>
+          {shapes.map((shape) => (
+            <MenuItem key={shape.value} value={shape.value}>
+              {shape.label}
+            </MenuItem>
+          ))}
         </Select>
       </FormControl>
     </Box>
