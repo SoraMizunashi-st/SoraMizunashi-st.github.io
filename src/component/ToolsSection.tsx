@@ -15,21 +15,25 @@ export default function ToolsSection() {
             </div>
 
             <div className={styles.projectItem}>
-              <a href="/ToolsB">Gradient Designer v1.0.0</a>
+              <a href="/GradDesigner">Gradient Designer v1.0.0</a>
               <p>cssのカラープロパティのグラデーション設定が視覚的に作れるツールです。</p>
               <p>※テスト中</p>
             </div>
 
             <div className={styles.projectItem}>
-              <a href="/ToolsC">tmp ToolC</a>
+              <a href="/StarSeeker">StarSeeker v1.0.0</a>
+              <p>あなたの現在地(市単位)から、ざっくりとした見える星の一覧表示</p>
+              <p>※テスト中</p>
             </div>
             
             <div className={styles.projectItem}>
-              <a href="/ToolsD">tmp ToolD</a>
+              <a href="/RandomNewsTaker">RandomNewsTaker</a>
             </div>
 
             <div className={styles.projectItem}>
-              <a href="/ToolsE">tmp ToolE</a>
+              <a href="/StyleTester">StyleTester</a>
+              <p>選んだ４色のカラーパレットでデザインをテストするツールです。</p>
+              <p>※テスト中</p>
             </div>
 
             <div className={styles.projectItem}>
