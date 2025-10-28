@@ -77,7 +77,7 @@ export const initialSettings: GeneratorSettings = {
   preset: 'default',
   basicStyle: {
     fontFamily: 'Roboto',
-    fontSize: 36,
+    fontSize: 18,
     textColor: '#FFFFFF',
 		transparentBackground: false,
     textStrokeEnabled: false,
@@ -86,7 +86,7 @@ export const initialSettings: GeneratorSettings = {
   icon: {
     enabled: true,
     frameShape: 'circle',
-    size: 40,
+    size: 24,
   },
   highlight: {
     owner: { highlightColor: '#FF6666', badgeEnabled: true },

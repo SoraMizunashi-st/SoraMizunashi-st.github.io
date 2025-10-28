@@ -1,0 +1,13 @@
+.container { padding: 16px; max-width: 900px; margin: 0 auto; font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; }
+.title { margin: 0 0 12px 0; }
+.controls { display: grid; grid-template-columns: 1fr; gap: 10px; margin-bottom: 14px; }
+.controlRow { display: flex; gap: 8px; align-items: center; }
+.controlRow label { min-width: 60px; }
+.smallNumber { width: 64px; }
+.previewWrapper { margin: 10px 0 14px 0; }
+.preview { height: 160px; border-radius: 8px; border: 1px solid rgba(0,0,0,0.08); box-shadow: 0 1px 3px rgba(0,0,0,0.04) inset; }
+.outputArea { display: flex; gap: 12px; align-items: stretch; }
+.cssArea { flex: 1; min-height: 84px; font-family: monospace; padding: 8px; border-radius: 6px; border: 1px solid #ddd; resize: vertical; }
+.buttonColumn { display: flex; flex-direction: column; gap: 8px; }
+.hint { color: #666; font-size: 13px; margin-top: 10px; }
+@media (min-width: 720px) { .controls { grid-template-columns: 1fr 1fr; } }

@@ -1,8 +1,8 @@
+// Keep ToolsB index page (Tools list / layout). The actual designer lives in the Designer subpath.
 "use client";
 
 import styles from './common.module.css';
 import tools_styles from './tools.module.css';
-
 
 import Header from '../../../../component/Header';
 import Fotter from "../../../../component/Fotter" 
@@ -10,6 +10,7 @@ import Fotter from "../../../../component/Fotter"
 import BackIndexComponent from '../../../../component/pageComponent/BackIndexComponent'
 
 import ToolsContent from "./ToolsContent.mdx";
+import Designer from "./designer/page";
 
 // メインページコンポーネント
 export default function Home() {
@@ -21,7 +22,10 @@ export default function Home() {
         <div className={tools_styles.twoColomn}>
           {/* メインコンテンツ側 */}
           <div className={tools_styles.toolsContentContainer}>
-            <ToolsContent/>
+            {/* 埋め込みデザイナ */}
+            <section style={{ marginTop: 18 }}>
+              <Designer />
+            </section>
           </div>
           
           {/* サイドバー側 (スケルトン) */}
