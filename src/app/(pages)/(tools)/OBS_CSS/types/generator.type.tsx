@@ -16,6 +16,8 @@ export type GeneratorSettings = {
     fontFamily: string;
     fontSize: number; // Slider値
     textColor: string;
+		// 背景を透過にするか
+		transparentBackground?: boolean;
     textStrokeEnabled: boolean;
     textStrokeColor: string;
   };
@@ -77,6 +79,7 @@ export const initialSettings: GeneratorSettings = {
     fontFamily: 'Roboto',
     fontSize: 36,
     textColor: '#FFFFFF',
+		transparentBackground: false,
     textStrokeEnabled: false,
     textStrokeColor: '#000000',
   },

@@ -1,4 +1,4 @@
-.twoColomnGrid {
+.twoColumnGrid {
     /* デフォルト（スマホ）では縦並び */
     display: block; 
     max-width: 1000px;
@@ -30,24 +30,34 @@
 
 @media (min-width: 768px) {
     /* 親コンテナをGridレイアウトに */
-    .twoColomnGrid {
+    .twoColumnGrid {
         display: grid;
         /* PCでの max-width を 80% に変更 */
         max-width: 80%; 
-        grid-template-columns: 6fr 4fr;
-        gap: 30px;
+    grid-template-columns: 6fr 4fr;
+    gap: 30px;
+    /* make columns stretch to equal height so sidebar can match left column */
+    align-items: stretch;
     }
     
     .sidebarContainer {
         margin-top: 0;
+        position: relative; /* positioning context for absolute fallback */
     }
 
     .sidebarSkeleton {
         display: block;
-        background-color: #f7f7f7;
+        background-color: #2c2c2c;
         border-radius: 8px;
         padding: 20px;
         border: 1px solid #e0e0e0;
-        height: 100%; 
+        /* allow the sidebar to stretch to the row height provided by the grid */
+        min-height: 0;
+        height: 100%;
+        /* remove sticky behavior – we now sync height to left column and use auto-scroll */
+        position: relative;
+        align-self: stretch;
+        z-index: 10;
+        overflow: hidden;
     }
 }

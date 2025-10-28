@@ -13,6 +13,7 @@ import ToolsInterface from "./ToolsInterfaceContainer";
 import PreviewBox from "./Preview/preview";
 import OutputBox from "./Preview/output";
 
+import ToolsInterfaceContainer from "./ToolsInterfaceContainer"; // これが全てを管理
 
 // OBS StyleSheetまとめ
 export default function Home()
@@ -22,23 +23,8 @@ export default function Home()
       <Header/>
 
       <main className={styles.main}>
-        <div className={tools_styles.twoColomnGrid}>
-          {/* メインコンテンツ側 */}
-          <div className={tools_styles.toolsContentContainer}>
-            <ToolsInterface/>
-          </div>
-          
-          {/* サイドバー側 (スケルトン) */}
-          <div className={tools_styles.sidebarContainer}>
-            <div className={tools_styles.sidebarSkeleton}>
-              <PreviewBox/>
-            </div>
-          </div>
-        </div>
-
-        <div>
-          <OutputBox/>
-        </div>
+        {/* ToolsInterfaceContainerが全体のレイアウトとState管理を担当 */}
+        <ToolsInterfaceContainer />
       </main>
 
       <section className={styles.back}>

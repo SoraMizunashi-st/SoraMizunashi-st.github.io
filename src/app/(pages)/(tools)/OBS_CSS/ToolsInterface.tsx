@@ -3,7 +3,8 @@ import styles from "./textDecorator.module.css"
 export default function ToolsInterfaceMDX({ 
     settings, setSetting, handleGenerate,
     PresetList, FontList, FontSizeSlider, IconFrameShapeList, IconSizeSlider, OnOffSwitch, 
-    SuperChatAnimationList, MemberShipAnimationList, ColorPicker, GenerateButton
+    SuperChatAnimationList, MemberShipAnimationList, ColorPicker, GenerateButton,
+    CommentAnimationList, ParticleTypeList, BackgroundToggle
 } : any){
     return(
         <>
@@ -72,6 +73,15 @@ export default function ToolsInterfaceMDX({
                 </div>
                 <div>
                     {ColorPicker("basicStyle.textStrokeColor")({})} {/* 🚨 Path割り当て＆呼び出し形式修正 */}
+                </div>
+            </div>
+
+            <div className={ styles.controlRow }>
+                <div className={ styles.controlLabel}>
+                    <p>◆背景を透過</p>
+                </div>
+                <div>
+                    {BackgroundToggle && BackgroundToggle("basicStyle.transparentBackground")({})}
                 </div>
             </div>
 
@@ -240,7 +250,7 @@ export default function ToolsInterfaceMDX({
                 <div>
                     {/* dropdown ( default = None ) */}
                     {/* プレースホルダーの関数呼び出しを避けるため null を返すのが安全です */}
-                    {null} 
+                    {CommentAnimationList && CommentAnimationList("animation.base")({})}
                 </div>
             </div>
 
@@ -250,7 +260,7 @@ export default function ToolsInterfaceMDX({
                 </div>
                 <div>
                     {/* dropdown ( default = None ) */}
-                    {null}
+                    {CommentAnimationList && CommentAnimationList("animation.entry")({})}
                 </div>
             </div>
 
@@ -260,7 +270,7 @@ export default function ToolsInterfaceMDX({
                 </div>
                 <div>
                     {/* dropdown ( default = None ) */}
-                    {null}
+                    {CommentAnimationList && CommentAnimationList("animation.exit")({})}
                 </div>
             </div>
 
@@ -284,7 +294,7 @@ export default function ToolsInterfaceMDX({
                 </div>
                 <div>
                     {/* dropdown ( default = None ) */}
-                    {null}
+                    {ParticleTypeList && ParticleTypeList("particle.baseType")({})}
                 </div>
             </div>
 
@@ -303,7 +313,7 @@ export default function ToolsInterfaceMDX({
                 </div>
                 <div>
                     {/* dropdown ( default = None ) */}
-                    {null}
+                    {ParticleTypeList && ParticleTypeList("particle.entryType")({})}
                 </div>
             </div>
 
@@ -322,7 +332,7 @@ export default function ToolsInterfaceMDX({
                 </div>
                 <div>
                     {/* dropdown ( default = None ) */}
-                    {null}
+                    {ParticleTypeList && ParticleTypeList("particle.exitType")({})}
                 </div>
             </div>
 

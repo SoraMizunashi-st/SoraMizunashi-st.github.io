@@ -16,32 +16,47 @@ const MenuProps = {
 };
 
 
-export default function FontList() {
-    const [selectedFont, setSelectedFont] = useState(GOOGLE_FONTS[0].value); 
+type Props = {
+    setSetting?: (path: string, value: any) => void;
+    currentValue?: string;
+    path?: string; // optional path if consumer wants custom
+}
 
-    const handleChange = (event:any) => { // 型注釈は省略しました
-        setSelectedFont(event.target.value);
-        // 将来的に親コンポーネントに値を渡すロジックをここに追加する (例: props.onChange(event.target.value))
+export default function FontList(props: Props) {
+    const initial = props.currentValue ?? GOOGLE_FONTS[0].value;
+    const [selectedFont, setSelectedFont] = useState<string>(initial);
+
+    const handleChange = (event: any) => {
+        const v = event.target.value as string;
+        setSelectedFont(v);
+        // propagate to parent if provided
+        try {
+            if (typeof props.setSetting === 'function') {
+                const path = props.path ?? 'basicStyle.fontFamily';
+                props.setSetting(path, v);
+            }
+        } catch (e) {
+            // ignore
+        }
     };
 
     return (
-    <FormControl sx={{ minWidth: 200 }}>
-        <InputLabel id="font-select-label">フォントを選択</InputLabel>
-        <Select
-            labelId="font-select-label"
-            id="font-select"
-            value={selectedFont}
-            label="フォントを選択"
-            onChange={handleChange}
-            MenuProps={MenuProps} // ★ ここで適用 ★
-        >
-            {/* GOOGLE_FONTSリストをマッピングしてMenuItemを生成 */}
-            {GOOGLE_FONTS.map((font) => (
-                <MenuItem key={font.value} value={font.value}>
-                    {font.name}
-                </MenuItem>
-            ))}
-        </Select>
-    </FormControl>
+        <FormControl sx={{ minWidth: 200 }}>
+            <InputLabel id="font-select-label">フォントを選択</InputLabel>
+            <Select
+                labelId="font-select-label"
+                id="font-select"
+                value={selectedFont}
+                label="フォントを選択"
+                onChange={handleChange}
+                MenuProps={MenuProps}
+            >
+                {GOOGLE_FONTS.map((font) => (
+                    <MenuItem key={font.value} value={font.value}>
+                        {font.name}
+                    </MenuItem>
+                ))}
+            </Select>
+        </FormControl>
     );
 }
