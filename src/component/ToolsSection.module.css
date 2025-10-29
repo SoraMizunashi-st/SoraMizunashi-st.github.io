@@ -1,4 +1,3 @@
-
 .section {
     padding: 5rem 5%;
     background-color: var(--color-brand-accent);
@@ -14,9 +13,10 @@
     display: inline-block;
 }
 
+/* 💡 グリッドレイアウトをオリジナルに戻しました */
 .projectGrid {
     display: grid;
-    grid-template-columns: var(--for_columns);
+    grid-template-columns: var(--for_columns); /* デスクトップで4列を想定 */
     
     gap: var(--spacing-game-nav);
     margin-top: var(--spacing-game-base);
@@ -27,27 +27,88 @@
     }
 }
 
+.projectLinkWrapper {
+    text-decoration: none;
+    color: inherit;
+}
+
 .projectItem {
-    background-color: var(--color-background-primary);
+    /* オリジナルスタイルと画像埋め込みの統合 */
+    background-color: var(--color-background-primary); /* 画像がない場合のフォールバック */
     padding: var(--spacing-base);
     border-radius: var(--border-radius-base);
     box-shadow: var(--shadow-item);
     border-left: var(--border-width-thick) solid var(--color-brand-primary);
-    min-height: 150px;
-
+    
+    /* 💡 高さの固定、画像とテキストの配置に必要 */
+    height: 200px; 
+    min-height: 150px; /* min-heightも保険として残す */
+    overflow: hidden; 
+    position: relative; /* 子要素のabsolute配置のため */
+    
+    /* 💡 画像の背景スタイル */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+    /* 💡 テキストを中央に配置するためのFlexbox */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    
     transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+    cursor: pointer; /* Linkであることを明示 */
 }
 
 .projectItem:hover {
-    /* 1. わずかに上に浮かせ、クリック可能であることを示す */
     transform: translateY(-5px); 
-    
-    /* 2. 影を濃くして、浮き上がりを強調する */
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* or custom shadow var */
-    
-    /* 3. 左ボーダーの色を濃くする（オプション） */
-    border-left: var(--border-width-thick) solid var(--color-brand-primary); 
-    
-    /* 4. カーソルをポインターに変更（クリック可能であることを明示） */
-    cursor: pointer; 
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    border-left: var(--border-width-thick) solid var(--color-brand-primary);
+}
+
+/* 💡 サムネイル画像上のオーバーレイ */
+.projectItem::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* 濃いグラデーションでテキストを目立たせる */
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.7) 100%); 
+    z-index: 1;
+    border-radius: inherit;
+}
+
+/* 💡 カード内のテキスト要素 (h3, p) はオーバーレイより前面に表示 */
+.projectItem h3,
+.projectItem p,
+.projectItem .toolDescription {
+    position: relative;
+    z-index: 2;
+    color: #FFFFFF; /* 白文字に統一 */
+    margin: 0;
+    padding: 0 5px;
+}
+
+.toolTitle {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+.toolDescription {
+    font-size: 0.9rem;
+    line-height: 1.4;
+    max-height: 60px; /* 説明文の最大高さを制限 */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+    opacity: 0.9;
+}
+
+.toolDescription p {
+    margin: 0;
 }

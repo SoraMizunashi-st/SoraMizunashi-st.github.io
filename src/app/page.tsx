@@ -23,9 +23,9 @@ export default function Home() {
       <main className={styles.main}>
         <HeroSection/>
         <TopSection/>
+        <ToolsSection/>
         <NewsSection/>
         <GameProjectSection/>
-        <ToolsSection/>
         <ProjectSection/>
         <FaqSection/>
         <AboutSection/>

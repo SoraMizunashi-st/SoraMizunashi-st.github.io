@@ -4,8 +4,8 @@
     display: flex;
     flex-direction: column;
     /* 白ベースの背景、文字色は濃い黒 */
-    background-color: #ffffff; 
-    color: #1a1a1a;
+    background-color: #f1f7ff; 
+    color: #353535;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 
@@ -14,6 +14,7 @@
 {
     flex-grow: 1;
     width: 100%;
+    
 }
 
 

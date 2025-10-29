@@ -2,52 +2,97 @@
 
 import styles from './ToolsSection.module.css';
 
+import Link from 'next/link';
+
+
+const tools = [
+    { 
+        id: 1, 
+        title: '青系だけの色見本', 
+        description: '読んで字のごとく青系だけの色見本です。\n青色が好きな人、どうぞ！', 
+        link: '/TheBlue',
+        thumbnail: '/carousel/theblue.webp'
+    },
+    { 
+        id: 2, 
+        title: 'OBS Comment Custom Generator', 
+        description: 'YoutubeコメントをOBSで使用するときのCSSを簡単に作れるツールです。\n※テスト中', 
+        link: '/OBS_CSS',
+        thumbnail: '/images/obs-tool-thumbnail.jpg'
+    },
+    { 
+        id: 3, 
+        title: 'Gradient Designer v1.0.0', 
+        description: 'cssのカラープロパティのグラデーション設定が視覚的に作れるツールです。\n※テスト中', 
+        link: '/GradDesigner',
+        thumbnail: '/images/gradient-tool-thumbnail.jpg'
+    },
+    { 
+        id: 4, 
+        title: 'StarSeeker v1.0.0', 
+        description: 'あなたの現在地(市単位)から、ざっくりとした見える星の一覧表示\n※テスト中', 
+        link: '/StarSeeker',
+        thumbnail: '/images/starseeker-tool-thumbnail.jpg'
+    },
+    { 
+        id: 5, 
+        title: 'RandomNewsTaker', 
+        description: 'ランダムなニュースを取得して表示するツールです。',
+        link: '/RandomNewsTaker',
+        thumbnail: '/images/news-tool-thumbnail.jpg'
+    },
+    { 
+        id: 6, 
+        title: 'StyleTester', 
+        description: '選んだ４色のカラーパレットでデザインをテストするツールです。\n※テスト中', 
+        link: '/StyleTester',
+        thumbnail: '/images/style-tester-tool-thumbnail.jpg'
+    },
+    { 
+        id: 7, 
+        title: 'tmpToolG', 
+        description: '一時的なツールGです。', 
+        link: '/ToolsG',
+        thumbnail: '/images/tmp-g-thumbnail.jpg'
+    },
+    { 
+        id: 8, 
+        title: 'tmp ToolH', 
+        description: '一時的なツールHです。', 
+        link: '/ToolsH',
+        thumbnail: '/images/tmp-h-thumbnail.jpg'
+    },
+];
+
 export default function ToolsSection() {
     return (
         <section id="tools" className={styles.section}>
-          <h2>Tools</h2>
-          <div className={styles.projectGrid}>
-            <div className={styles.projectItem}>
-              {/* 将来的に、カードサイズが確定した時は、文字じゃなくて、画像自体(カード全体)をリンク埋め込み対象にする事！！*/}
-              <a href="/OBS_CSS">OBS Comment Custum Generator</a>
-              <p>YoutubeコメントをOBSで使用するときのCSSを簡単に作れるツールです。</p>
-              <p>※テスト中</p>
+            <h2>Tools</h2>
+            <div className={styles.projectGrid}>
+                {tools.map(tool => (
+                    // Linkコンポーネントを使用し、カード全体をクリック可能にする
+                    // 注意: Linkタグの子要素には必ず1つの要素が必要です。
+                    // 今回は `projectItem` を子とします。
+                    <Link href={tool.link} key={tool.id} className={styles.projectLinkWrapper}>
+                        <div 
+                            className={styles.projectItem}
+                            // 💡 style属性で背景画像を動的に設定
+                            style={{ backgroundImage: `url(${tool.thumbnail})` }} 
+                        >
+                            {/* 💡 テキストの視認性を確保するオーバーレイはCSSで::beforeを使用 */}
+                            <h3 className={styles.toolTitle}>{tool.title}</h3>
+                            {/* 💡 descriptionは改行文字で分割して表示 */}
+                            {tool.description && (
+                                <div className={styles.toolDescription}>
+                                    {tool.description.split('\n').map((line, index) => (
+                                        <p key={index}>{line}</p>
+                                    ))}
+                                </div>
+                            )}
+                        </div>
+                    </Link>
+                ))}
             </div>
-
-            <div className={styles.projectItem}>
-              <a href="/GradDesigner">Gradient Designer v1.0.0</a>
-              <p>cssのカラープロパティのグラデーション設定が視覚的に作れるツールです。</p>
-              <p>※テスト中</p>
-            </div>
-
-            <div className={styles.projectItem}>
-              <a href="/StarSeeker">StarSeeker v1.0.0</a>
-              <p>あなたの現在地(市単位)から、ざっくりとした見える星の一覧表示</p>
-              <p>※テスト中</p>
-            </div>
-            
-            <div className={styles.projectItem}>
-              <a href="/RandomNewsTaker">RandomNewsTaker</a>
-            </div>
-
-            <div className={styles.projectItem}>
-              <a href="/StyleTester">StyleTester</a>
-              <p>選んだ４色のカラーパレットでデザインをテストするツールです。</p>
-              <p>※テスト中</p>
-            </div>
-
-            <div className={styles.projectItem}>
-              <a href="/ToolsF">tmp ToolF</a>
-            </div>
-
-            <div className={styles.projectItem}>
-              <a href="/ToolsG">tmpToolG</a>
-            </div>
-
-            <div className={styles.projectItem}>
-              <a href="/ToolsH">tmp ToolH</a>
-            </div>
-          </div>
         </section>
     );
 }

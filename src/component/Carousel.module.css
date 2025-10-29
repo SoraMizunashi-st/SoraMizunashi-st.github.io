@@ -1,20 +1,80 @@
-/* スライド全体のコンテナを調整 */
-.carouselContainer {
-    max-width: 1200px; /* 必要に応じて最大幅を設定 */
-    margin: 0 auto;
-}
-
 /* 個々のスライドアイテム（カード）のスタイル */
 .projectCard {
+    /* 既存のスタイル... */
     background-color: var(--color-background-primary);
     padding: var(--spacing-base);
     border-radius: var(--border-radius-base);
     box-shadow: var(--shadow-item);
-    /* Splideの標準テーマを使用する場合、
-       個別のスタイリングは少なくても見栄えがします */
-    min-height: 200px; /* 高さを確保 */
+    min-height: 200px;
+    height:250px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
+    overflow: hidden;
+    
+    /* 💡 ボタンとの間に少しスペースを空ける */
+    gap: 1.5rem; 
+}
+
+/* 💡 新規追加: 「使ってみる！」ボタンのスタイル */
+.projectCard a {
+    /* 基本スタイル: 背景色、文字色、ボーダー */
+    display: inline-block;
+    background-color: #FF8C00; /* 鮮やかなオレンジ */
+    color: #FFFFFF; /* 白文字で高い視認性を確保 */
+    border: none;
+    border-radius: 18px; 
+    
+    /* パディングとフォント */
+    padding: 0.75rem 1.5rem; /* サイズ調整 */
+    font-size: 1rem;
+    font-weight: 700;
+    text-decoration: none; /* 下線を削除 */
+    text-align: center;
+    
+    /* 影の追加: 立体感とクリックしやすさを出す */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    
+    /* マウスホバー時のエフェクト */
+    transition: background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* 💡 ホバー時のスタイル */
+.projectCard a:hover {
+    background-color: #FF7F50; /* 少し明るいオレンジに変化 */
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); /* 影を強調 */
+    cursor: pointer; 
+}
+
+.projectDescription {
+    /* フォントサイズを少し抑えて、本文であることを示す */
+    font-size: 0.95rem;
+    /* 上下のマージンを調整し、タイトルとボタンから分離 */
+    margin: 0.5rem 0 1.5rem 0; 
+    /* 文字の配置を中央に */
+    text-align: center; 
+    /* 必要に応じて行の高さを調整 */
+    line-height: 1.5;
+}
+
+.projectCard::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* 暗い画像には薄いグラデーション、明るい画像には濃いグラデーションなど調整 */
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.6) 100%); 
+    z-index: 1; /* テキストより下に */
+    border-radius: inherit; /* 親の角丸を継承 */
+}
+
+.projectCard h3,
+.projectCard .projectDescription,
+.projectCard a {
+    position: relative; /* オーバーレイより前面に */
+    z-index: 2;         /* オーバーレイより上に */
+    color: #ebebeb;     /* 背景が暗くなるので白文字に統一 */
 }

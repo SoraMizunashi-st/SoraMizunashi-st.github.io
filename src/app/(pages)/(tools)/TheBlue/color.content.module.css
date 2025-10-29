@@ -1,0 +1,77 @@
+
+.colorGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.colorPanel {
+  /*border: 2px solid #3f92ff;*/
+  border-radius: 16px;
+  padding: 0;
+  box-shadow: 0 2px 8px rgba(96, 112, 255, 0.1);
+  text-align: left;
+  overflow: hidden;
+}
+
+.categoryTitle {
+  margin: 0;
+  padding: 8px 16px;
+  font-size: 2.5rem;
+  border-radius: 16px;
+
+  box-shadow: inset 0 0 0 1px rgb(171, 197, 253);
+}
+
+.pageTitle {
+  text-align: left;
+
+  color:rgb(43, 128, 255);
+
+  font-family: "Varela Round", sans-serif;
+  font-size: 3rem;
+  font-weight: 500;
+
+  margin: 0;
+}
+
+
+.swatchGrid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(200px, 1fr));
+  gap: 2px;
+  padding: 2px;
+}
+
+.swatch {
+
+  display: flex;
+  align-items: center; 
+  padding: 8px 16px;
+
+  border-radius: 6px;
+  height: 56px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.02);
+  /*border-top: 1px solid rgba(255,255,255,0.7);
+  border-bottom: 1px solid rgba(255,255,255,0.7);*/
+}
+
+.swatchLabel {
+  font-weight : 700;
+  margin-bottom: 0px;
+  font-size: 0.95rem;
+  opacity: 0.95;
+}
+
+.swatchCode { 
+  font-family: monospace;
+  font-weight : 700;
+  font-size: 0.95rem;
+  opacity: 0.95;
+
+  margin-bottom: 0px;
+}
+

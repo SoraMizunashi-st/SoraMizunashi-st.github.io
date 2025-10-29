@@ -1,0 +1,248 @@
+
+import styles from "./tools.module.css";
+import styles_color from "./color.content.module.css";
+
+<div className={ styles_color.pageTitle }>
+    青系だけの色見本
+</div>
+
+{(() => {
+    const hexToRgb = (hex) => {
+        const h = hex.replace('#','');
+        const bigint = parseInt(h.length===3 ? h.split('').map(c=>c+c).join('') : h, 16);
+        const r = (bigint >> 16) & 255;
+        const g = (bigint >> 8) & 255;
+        const b = bigint & 255;
+        return { r, g, b };
+    };
+
+    const luminance = (hex) => {
+        const { r, g, b } = hexToRgb(hex);
+        const [R, G, B] = [r,g,b].map(v => {
+            const s = v/255;
+            return s <= 0.03928 ? s/12.92 : Math.pow((s+0.055)/1.055, 2.4);
+        });
+        return 0.2126*R + 0.7152*G + 0.0722*B;
+    };
+
+    const textColorFor = (hex) => luminance(hex) > 0.65 ? '#3d3d3dff' : '#f3f3f3ff';
+
+    const CATEGORIES = [
+    {
+        id: 'light_pastel',
+        title: 'Light & Pastel Blues #4f95c5',
+        headerHex: '#4f95c5',
+        colors: [
+            ['Powder Blue (Deep)', '#e6f6fc'],
+            ['Powder Aqua', '#ecf4eb'],
+            ['Blue Waltz', '#bbdfd8'],
+            ['Aqua Tint', '#c5e7eb'],
+            ['Angel Blue', '#c5dae7'],
+            ['Voltaire', '#c6d3e2'],
+            ['Pearl Blue', '#c4deea'],
+            ['Air Blue', '#d0e4ec'],
+            ['Blue Mist', '#d3dadd'],
+            ['Pale Aqua', '#d1eae8'],
+            ['Mermaid Blue', '#a7dce4'],
+            ['Fresco Blue', '#98d7e3'],
+            ['Dragée Blue', '#98c8e1'],
+            ['Alpine Blue', '#a5cee7'],
+            ['Vermi Air', '#b4d0e7'],
+            ['Light Lavender (Deep)', '#b5cae2'],
+            ['Iceland Blue', '#b6d1e1'],
+            ['Horizon Blue (Pale)', '#b0e2f6'],
+            ['Aphrodite', '#90cfcb'],
+            ['April Mist', '#88b6c9'],
+            ['Isle Tone Blue', '#a9dbe0'],
+            ['Sky Blue (Pale)', '#8bafdb'],
+            ['Zephyr Blue', '#81a5cd'],
+            ['Southern Cross', '#7fb0d2'],
+            ['Chalk Blue', '#7b9fc9'],
+            ['Celeste', '#73aed5'],
+            ['Bambino', '#7db0d6'],
+            ['Zens Blue', '#7593b1'],
+            ['Horizon Blue', '#addad3']
+        ]
+    },
+    {
+        id: 'vibrant_pure',
+        title: 'Pure & Vibrant Blues #1581c5',
+        headerHex: '#1581c5', // Cobalt Blue
+        colors: [
+            ['Miyosoti', '#5cc9ed'],
+            ['Light Alice Blue', '#26a3d3'],
+            ['Bright Sea', '#00afc6'],
+            ['Delectable', '#00aac9'],
+            ['Olympic', '#00a4c4'],
+            ['Napoli', '#00a1c4'],
+            ['Trade Wind', '#009bcc'],
+            ['Bright Sky Blue', '#008eb1'],
+            ['Symphony Blue', '#0085de'],
+            ['Fermeer', '#0084b9'],
+            ['Blue Shell', '#3a9bc0'],
+            ['Yacht Blue', '#008cc0'],
+            ['Cobalt Blue', '#1581c5'],
+            ['Amigo Blue', '#3b91c4'],
+            ['Viking Blue', '#005882'],
+            ['Nelson Blue', '#005b8f'],
+            ['Blue France', '#004f90'],
+            ['Royal Blue (Deep)', '#004e8a'],
+            ['Luxor', '#003d7c'],
+            ['Regatta Blue', '#1e54bf'],
+            ['Winter Blue', '#325e9a'],
+            ['Hydrangea Blue', '#325e9a'],
+            ['Acapulco Blue', '#25799e'],
+            ['Acapulco', '#00627c'],
+            ['Adriatic Blue', '#009ec3'],
+            ['Alno Blue', '#3c8490'],
+            ['Atlantico Blue', '#00aad6'],
+            ['Azer Blue', '#59b5d1'],
+            ['Blue Danube', '#008dac'],
+            ['Bright Voltic', '#0389aa'],
+            ['Campus Blue', '#4782b7'],
+            ['Aegean Blue', '#4f95c5'],
+            ['Clear Sky', '#1886a2'],
+            ['Copenhagen', '#65c8de'],
+            ['Cote d\'Azur', '#004777'],
+            ['Delphi Blue', '#4387bb'],
+            ['Dolphin Blue', '#26747b'],
+            ['Egyptian Blue', '#006785'],
+            ['Enamel Blue', '#00375f'],
+            ['Fountain Blue', '#8599c3'],
+            ['Garter Blue', '#00538d'],
+            ['Marine Blue', '#1847aa'],
+        ]
+    },
+    {
+        id: 'teal_aqua',
+        title: 'Teal & Greenish Blues #008080',
+        headerHex: '#008080', // Teal
+        colors: [
+            ['Cambridge Blue', '#54b6be'],
+            ['Verona', '#53adb2'],
+            ['Cyan Blue (Soft)', '#5dbbb8'],
+            ['Arcadia', '#71c5c6'],
+            ['Boticelli', '#7fcbcf'],
+            ['Aphrodite (Pale)', '#90cfcb'],
+            ['Ophelia', '#7ac7be'],
+            ['Aqua Spray', '#52b3af'],
+            ['Venit', '#389192'],
+            ['Nile Blue', '#418c8c'],
+            ['Aqua Marine', '#327585'],
+            ['Lomond Blue', '#65a2ac'],
+            ['Squall', '#6f96a6'],
+            ['Arabesque Turk', '#00869f'],
+            ['Turquoise', '#0097a2'],
+            ['Turquoise Tile', '#0096a9'],
+            ['Coral Reef', '#00748a'],
+            ['Bahama Sea', '#007888'],
+            ['Marine Blue (Dark)', '#005c75'],
+            ['Rasha', '#003740'],
+            ['Manchou Duck', '#005566'],
+            ['Medium Aquamarine (Deep)', '#66CDAA'], // Previous palette
+            ['Teal (UD)', '#008080'], // Previous palette
+            ['Dark Cyan (UD)', '#008B8B'] // Previous palette
+        ]
+    },
+    {
+        id: 'slate_violet',
+        title: 'Slate & Violet Blues #3f4d92',
+        headerHex: '#3f4d92', // Cornflower Blue
+        colors: [
+            ['Pale Lavender (Muted)', '#cedbec'],
+            ['Light Lavender (Deep)', '#b5cae2'],
+            ['Echo (Blue)', '#88aeba'],
+            ['Strata Blue', '#8795aa'],
+            ['Celestial Blue (Muted)', '#889faf'],
+            ['Wedgwood', '#5a8cb3'],
+            ['Fountain Blue', '#8599c3'],
+            ['Hortensia', '#769cc1'],
+            ['Lavender Blue', '#4f74aa'],
+            ['Ballad Blue', '#6c7ca8'],
+            ['Salvia Blue', '#6e7aac'],
+            ['Echo Blue (Deep)', '#969bb7'],
+            ['Zenith Blue', '#999db9'],
+            ['Moonlight Blue', '#a3aabe'],
+            ['Monet Blue', '#5c5890'],
+            ['Mila’s Blue', '#2b385f'],
+            ['Blueberry', '#303b5b'],
+            ['Cornflower Blue (Deep)', '#3f4d92'],
+            ['Smalt', '#3a4789'],
+            ['Cornflower Blue (Deep)', '#3f4d92'],
+            ['Ultramarine', '#2d3289'],
+            ['Bellflower', '#443e7e'],
+            ['Prussian Blue (Violet)', '#392c87'],
+            ['Bengol Blue', '#24104c'],
+            ['Navy Blue (Deep)', '#190535'],
+            ['Blue Violet (UD)', '#8A2BE2'], // Previous palette
+            ['Indigo (UD)', '#4B0082'] // Previous palette
+        ]
+    },
+    {
+        id: 'dark_navy',
+        title: 'Dark & Navy Blues #002a5a',
+        headerHex: '#002a5a', // Navy (Medium)
+        colors: [
+            ['Westminster', '#121144'],
+            ['Nocturne', '#191c32'],
+            ['Old China', '#335062'],
+            ['North Sea', '#393b3e'],
+            ['Winter Sky', '#5c728a'],
+            ['London Twilight', '#1a435b'],
+            ['Shadow Blue', '#15485f'],
+            ['Union Jack Blue', '#405682'],
+            ['Navy (Medium)', '#002a5a'],
+            ['Independence Navy', '#001a50'],
+            ['Napoleon Blue', '#002132'],
+            ['Midnight Blue', '#1a1f47'],
+            ['Outerspace Blue', '#252e57'],
+            ['Palma', '#0f114a'],
+            ['Renaissance Blue', '#0f1045'],
+            ['Brighton Blue', '#0e1847'],
+            ['France (Dark)', '#101048'],
+            ['Indigo (Dark)', '#0a0a2d'],
+            ['Deep Blue (UD)', '#0a1d49'],
+            ['Hellenic Blue', '#0a1d49'],
+            ['Timor Blue', '#062240'],
+            ['Brighton Blue', '#0e1847'],
+            ['Touareg', '#002f44'],
+            ['Dark Navy', '#00243d'],
+            ['Blue Valnas', '#00245f'],
+            ['Delft Blue', '#002d64'],
+            ['Prussian Blue (Deep)', '#003067'],
+
+        ]
+    }];
+        return (
+            <div>
+                {CATEGORIES.map(cat => {
+                    const sampleIdx = Math.max(0, Math.floor(cat.colors.length / 2));
+                    const headingColor = cat.colors[sampleIdx] && cat.colors[sampleIdx][1] ? cat.colors[sampleIdx][1] : cat.colors[0][1];
+                    return (
+                        <section key={cat.id} className={styles_color.colorPanel}>
+                            <div className={styles_color.categoryTitle} style={{ background: cat.headerHex, color: textColorFor(headingColor) }}>
+                                    {cat.title}
+                            </div>
+                            <div className={styles_color.swatchGrid}>
+                                {cat.colors.map(([name, hex], index) => ( 
+                                    <div 
+                                        key={`${cat.id}-${name}-${index}`}
+                                        className={styles_color.swatch} 
+                                        style={{ background: hex, color: textColorFor(hex) }}
+                                    >
+                                        <div className={styles_color.swatchLabel}>
+                                            {name}
+                                        </div>
+                                        <div className={styles_color.swatchCode}>
+                                            {hex}
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </section>
+                    );
+                })}
+            </div>
+        );
+    })()
+}

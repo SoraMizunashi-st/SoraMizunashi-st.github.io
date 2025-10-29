@@ -7,10 +7,35 @@ import styles from './Carousel.module.css'; // 専用のCSS Modulesを想定
 
 // ダミーデータ（実際は外部からpropsとして渡すのが理想的）
 const projects = [
-    { id: 1, title: 'Project A', link: '/project/a' },
-    { id: 2, title: 'Project B', link: '/project/b' },
-    { id: 3, title: 'Project C', link: '/project/c' },
-    { id: 4, title: 'Project D', link: '/project/d' },
+    { 
+        id: 1, 
+        title: '青系だけの色見本', 
+        link: '/TheBlue',
+        // 💡 説明文を追加
+        description: 'Webデザインに役立つ青系のカラーコードを網羅。明度・彩度別のフィルタリング機能も搭載した専門ツールです。',
+        thumbnail: '/carousel/theblue.webp'
+    },
+    { 
+        id: 2, 
+        title: 'Project B', 
+        link: '/project/b',
+        description: 'このプロジェクトは、〇〇の課題を解決するために開発されました。',
+        thumbnail: '/carousel/s001.jpg'
+    },
+    { 
+        id: 3, 
+        title: 'Project C', 
+        link: '/project/c',
+        description: 'ユーザーインターフェースの使いやすさを追求した、実験的なデザインです。',
+        thumbnail: '/carousel/s001.jpg'
+    },
+    { 
+        id: 4, 
+        title: 'Project D', 
+        link: '/project/d',
+        description: 'データ駆動型のビジュアライゼーションを目的とした、最新の技術デモです。',
+        thumbnail: '/carousel/s001.jpg'
+    },
 ];
 
 export default function Carousel() {
@@ -40,9 +65,10 @@ export default function Carousel() {
         {projects.map(project => (
           // SplideSlideコンポーネントで各要素をラップ
           <SplideSlide key={project.id}>
-            <div className={styles.projectCard}>
+            <div className={styles.projectCard} style={{ backgroundImage: `url(${project.thumbnail})` }} >
               <h3>{project.title}</h3>
-              <a href={project.link}>プレイする!!</a>
+              <p className={styles.projectDescription}>{project.description}</p>
+              <a href={project.link}>使ってみる！</a>
             </div>
           </SplideSlide>
         ))}

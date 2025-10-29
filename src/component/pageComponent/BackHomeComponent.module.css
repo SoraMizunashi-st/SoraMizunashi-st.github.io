@@ -20,9 +20,9 @@
     border-radius: 50%; /* 完全な丸型 */
     
     /* 色と影 */
-    background-color: #1882ed; /* メインカラー（青） */
+    background-color: #ed8a18; /* メインカラー（青） */
     color: #ffffff;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25); /* 影で浮いているように見せる */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5); /* 影で浮いているように見せる */
     
     /* ホバーアニメーション */
     transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
