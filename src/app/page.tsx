@@ -23,8 +23,8 @@ export default function Home() {
       <main className={styles.main}>
         <HeroSection/>
         <TopSection/>
-        <ToolsSection/>
         <NewsSection/>
+        <ToolsSection/>
         <GameProjectSection/>
         <ProjectSection/>
         <FaqSection/>

@@ -18,49 +18,49 @@ const tools = [
         title: 'OBS Comment Custom Generator', 
         description: 'YoutubeコメントをOBSで使用するときのCSSを簡単に作れるツールです。\n※テスト中', 
         link: '/OBS_CSS',
-        thumbnail: '/images/obs-tool-thumbnail.jpg'
+        thumbnail: '/carousel/soon.webp'
     },
     { 
         id: 3, 
         title: 'Gradient Designer v1.0.0', 
         description: 'cssのカラープロパティのグラデーション設定が視覚的に作れるツールです。\n※テスト中', 
         link: '/GradDesigner',
-        thumbnail: '/images/gradient-tool-thumbnail.jpg'
+        thumbnail: '/carousel/soon.webp'
     },
     { 
         id: 4, 
         title: 'StarSeeker v1.0.0', 
         description: 'あなたの現在地(市単位)から、ざっくりとした見える星の一覧表示\n※テスト中', 
         link: '/StarSeeker',
-        thumbnail: '/images/starseeker-tool-thumbnail.jpg'
+        thumbnail: '/carousel/soon.webp'
     },
     { 
         id: 5, 
         title: 'RandomNewsTaker', 
         description: 'ランダムなニュースを取得して表示するツールです。',
         link: '/RandomNewsTaker',
-        thumbnail: '/images/news-tool-thumbnail.jpg'
+        thumbnail: '/carousel/soon.webp'
     },
     { 
         id: 6, 
         title: 'StyleTester', 
         description: '選んだ４色のカラーパレットでデザインをテストするツールです。\n※テスト中', 
         link: '/StyleTester',
-        thumbnail: '/images/style-tester-tool-thumbnail.jpg'
+        thumbnail: '/carousel/soon.webp'
     },
     { 
         id: 7, 
         title: 'tmpToolG', 
         description: '一時的なツールGです。', 
         link: '/ToolsG',
-        thumbnail: '/images/tmp-g-thumbnail.jpg'
+        thumbnail: '/carousel/soon.webp'
     },
     { 
         id: 8, 
         title: 'tmp ToolH', 
         description: '一時的なツールHです。', 
         link: '/ToolsH',
-        thumbnail: '/images/tmp-h-thumbnail.jpg'
+        thumbnail: '/carousel/soon.webp'
     },
 ];
 

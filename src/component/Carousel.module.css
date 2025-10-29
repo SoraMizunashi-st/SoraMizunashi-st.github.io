@@ -12,6 +12,11 @@
     justify-content: space-between;
     align-items: center;
     overflow: hidden;
+
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     
     /* 💡 ボタンとの間に少しスペースを空ける */
     gap: 1.5rem; 

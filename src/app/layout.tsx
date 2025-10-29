@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
@@ -23,8 +24,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "StellaLab.",
-  description: "ここは、StellaLab.が制作したテストプログラムの実験場および、その解説を行うHPです。",
+  title: "デザインツール倉庫",
+  description: "ここは、StellaLab.が制作したツール群を公開しているホームページです。",
 };
 
 export default function RootLayout({

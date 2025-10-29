@@ -1,7 +1,7 @@
 
 .section {
-    padding: 5rem 5%;
-    background-color: var(--color-brand-accent);
+    padding: 2rem 5%;
+    background-color: rgb(223, 223, 223);
     border-top: 1px solid var(--color-brand-border);
 }
 

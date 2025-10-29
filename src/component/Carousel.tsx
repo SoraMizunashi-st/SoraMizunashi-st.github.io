@@ -12,7 +12,7 @@ const projects = [
         title: '青系だけの色見本', 
         link: '/TheBlue',
         // 💡 説明文を追加
-        description: 'Webデザインに役立つ青系のカラーコードを網羅。明度・彩度別のフィルタリング機能も搭載した専門ツールです。',
+        description: 'Webデザインに役立つ青系のカラーコードを網羅。',
         thumbnail: '/carousel/theblue.webp'
     },
     { 
@@ -20,21 +20,21 @@ const projects = [
         title: 'Project B', 
         link: '/project/b',
         description: 'このプロジェクトは、〇〇の課題を解決するために開発されました。',
-        thumbnail: '/carousel/s001.jpg'
+        thumbnail: '/carousel/soon.webp'
     },
     { 
         id: 3, 
         title: 'Project C', 
         link: '/project/c',
         description: 'ユーザーインターフェースの使いやすさを追求した、実験的なデザインです。',
-        thumbnail: '/carousel/s001.jpg'
+        thumbnail: '/carousel/soon.webp'
     },
     { 
         id: 4, 
         title: 'Project D', 
         link: '/project/d',
         description: 'データ駆動型のビジュアライゼーションを目的とした、最新の技術デモです。',
-        thumbnail: '/carousel/s001.jpg'
+        thumbnail: '/carousel/soon.webp'
     },
 ];
 
@@ -42,7 +42,7 @@ export default function Carousel() {
   // Splideのオプションを定義
   const options = {
     type: 'loop',      // 無限ループ
-    perPage: 3,        // 1ページあたりの表示数
+    perPage: 3.5,        // 1ページあたりの表示数
     focus: 'center',   // 中央の要素をフォーカス
     gap: '2rem',       // スライド間のスペース
     autoplay: true,    // 自動再生
@@ -58,9 +58,6 @@ export default function Carousel() {
 
   return (
     <div className={styles.carouselContainer}>
-      {/* Splideコンポーネントでラップし、optionsを渡す
-        aria-labelはアクセシビリティ向上のため付与することを推奨 
-      */}
       <Splide options={options} aria-label="Our recent projects slideshow">
         {projects.map(project => (
           // SplideSlideコンポーネントで各要素をラップ
